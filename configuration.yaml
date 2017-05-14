@@ -1,0 +1,113 @@
+homeassistant:
+  name: Home
+  latitude: 52.260149410781
+  longitude: -0.6739781057483401
+  elevation: 65
+  unit_system: metric
+  time_zone: Europe/London
+  customize:
+    zone.home:
+      track_ios: true
+    zone.datapath: 
+      track_ios: true
+    zone.mums:
+      track_ios: true
+
+logger:
+  default: critical
+
+light:
+  platform: hue
+  host: 192.168.20.133
+
+# Enables the frontend
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_password
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically (necessary for Philips Hue)
+discovery:
+  ignore:
+    - plex_mediaserver
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Configuration panel enablement.
+config:
+
+# Track the sun
+sun:
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: hass
+  username: homeassistant
+  password: !secret mqtt_ha_password
+
+sensor: !include config/sensors.yaml
+
+zone: !include config/zones.yaml
+
+device_tracker: !include config/device_tracker.yaml
+
+switch: !include config/switches.yaml
+
+group: !include config/group/lights.yaml
+
+scene: !include config/scenes.yaml
+
+automation: !include config/automation.yaml
+
+shell_command: !include config/shellcommands.yaml
+
+camera:
+  - platform: local_file
+    file_path: /home/dave/.tort-temps/tort-cage-temp-history.png
+    name: torttemps
+  - platform: generic
+    still_image_url: http://90.155.51.236/Streaming/channels/1/picture 
+    username: admin
+    password: !secret camera_password
+    name: tortsnapshot
+
+media_player:
+  - platform: sonos
+    hosts:
+      - 192.168.30.190
+      - 192.168.30.156
+
+ios:
+  health_check: true
+  push_categories:
+    - name: Generic
+      identifiier: 'Generic'
+
+input_boolean:
+  sun_going_down:
+    name: Sun is going down
+    initial: off
+  sun_inhibit_action:
+    name: Inhibit sundown actions
+    initial: off
+  tortheaters:
+    name: Tort Ceramics Control
+    initial: off
+  alarm_sequence_running:
+    name: Morning Alarm running
+    initial: off
+  kitmocorr:
+    name: Kitchen Motion Correction
+    initial: off

@@ -1,0 +1,28 @@
+- platform: mqtt
+  name: "Tortoise UV Lamps"
+  state_topic: "smartthings/Tortoise UV Lamps/switch"
+  command_topic: "smartthings/Tortoise UV Lamps/switch"
+  payload_on: "on"
+  payload_off: "off"
+
+- platform: mqtt
+  name: "Tortoise Ceramic Heaters"
+  state_topic: "smartthings/Tortoise Ceramic Heaters/switch"
+  command_topic: "smartthings/Tortoise Ceramic Heaters/switch"
+  payload_on: "on"
+  payload_off: "off"
+
+- platform: mqtt
+  name: "Black cage Heat Lamp"
+  state_topic: "smartthings/black cage heat lamp/switch"
+  command_topic: "smartthings/black cage heat lamp/switch"
+  payload_on: "on"
+  payload_off: "off"
+
+- platform: mqtt
+  name: "White cage Heat Lamp"
+  state_topic: "smartthings/white cage heat lamp/switch"
+  command_topic: "smartthings/white cage heat lamp/switch"
+  payload_on: "on"
+  payload_off: "off"
+

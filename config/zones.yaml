@@ -1,0 +1,17 @@
+- name: "Datapath"
+  latitude: 52.9244636808
+  longitude: -1.4560921560952
+  radius: 499
+  icon: mdi:city
+
+- name: "Home"
+  latitude: 52.260149410781
+  longitude: -0.6739781057483401
+  radius: 399
+  icon: mdi:home
+
+- name: "Mums"
+  latitude: 52.306008708982
+  longitude: -0.59360405730145
+  radius: 99
+  icon: mdi:home-variant

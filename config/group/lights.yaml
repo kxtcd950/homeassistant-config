@@ -1,0 +1,114 @@
+downlights:
+  name: Lights
+  entities:
+    - light.dining_room
+    - light.front_room_table_lamp
+    - light.front_room
+    - light.hallway
+    - light.porch
+    - light.bottom_of_stairs
+    - light.kitchen_under_cupboard
+
+downcontrol:
+  name: Controllers
+  entities:
+    - switch.white_cage_heat_lamp
+    - switch.black_cage_heat_lamp
+    - switch.tortoise_uv_lamps
+    - switch.tortoise_ceramic_heaters
+
+upslights:
+  name: Lights
+  entities:
+    - light.landing
+    - light.our_bedroom
+    - light.maries_room
+
+#
+#  From here down, these are the groups for the frontend.
+#
+
+downstairscollected:
+  view: yes
+  name: Downstairs Devices
+  entities:
+    - group.downlights
+    - group.downcontrol
+
+upstairscollected:
+  view: yes
+  name: Upstairs Devices
+  entities:
+    - group.upslights
+
+tortoises:
+  view: yes
+  name: Tortoise Control
+  entities:
+    - group.downcontrol
+    - sensor.white_tortoise_cage_lamp_power
+    - sensor.black_tortoise_cage_lamp_power
+    - sensor.tortoise_uv_lamps_power
+    - sensor.tortoise_ceramics_power
+    - switch.white_cage_heat_lamp
+    - switch.black_cage_heat_lamp
+    - switch.tortoise_ceramic_heaters
+    - switch.tortoise_uv_lamps
+    - input_boolean.tortheaters
+
+otherstuff:
+  view: yes
+  name: Automations
+  entities:
+    - automation.good_morning
+    - automation.Sun_fading
+    - automation.Turn_more_lights_on_as_the_sun_gets_dimmer
+    - automation.Dusk_all_lights_on
+    - automation.Goodnight
+    - automation.Tortoises_night_night
+    - automation.Tortoises_good_morning
+    - automation.Good_morning
+    - automation.WakeyWakeyRiseAndShine
+    - automation.Turn_off_lights_after_sunrise
+    - automation.Hallway_tap_face_button
+    - automation.Hallway_tap_button_two
+    - automation.Bedroom_tap_face_button
+    - automation.Bedroom_tap_button_2_bathroom_run
+    - automation.Bedroom_tap_button_3_kitchen_run
+    - automation.kitchen_under_cupboard_lights
+    - input_boolean.sun_inhibit_action
+    - input_boolean.sun_going_down
+    - input_boolean.kitmocorr
+    - light.kitchen_under_cupboard
+    - sensor.solar_elevation
+    - sensor.sunrise
+    - sensor.sunset
+
+default_view:
+  view: yes
+  name: Default View
+  entities:
+    - scene.all_tortoise_lights_on
+    - scene.all_tortoise_lights_off
+    - scene.all_lights_on
+    - scene.all_lights_off
+    - media_player.dining_room
+    - media_player.LivingRoom
+    - sensor.living_room_window
+    - sensor.front_door
+    - sensor.living_room_window_temperature
+    - sensor.front_door_temperature
+    - sensor.tortoise_black_temp
+    - sensor.tortoise_white_temp
+    - device_tracker.daves_iphone
+    - device_tracker.maries_iphone
+    - sun.sun
+    - sensor.yr_symbol
+    - camera.torttemps
+    - camera.tortsnapshot
+    - media_player.bedroom
+    - sensor.wtclamp
+    - sensor.btclamp
+    - sensor.uvlamps
+    - sensor.tortheater
+    - input_boolean.tortheaters

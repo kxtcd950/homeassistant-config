@@ -1,0 +1,141 @@
+# Weather Prediction
+- platform: yr
+  monitored_conditions:
+    - symbol
+    - pressure
+    - humidity
+    - temperature
+    
+- platform: mqtt
+  name: "Living Room Sensor Battery"
+  state_topic: "smartthings/Living Room Window/battery"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Front Door"
+  state_topic: "smartthings/Front Door/contact"
+
+- platform: mqtt
+  name: "Front Door Sensor Battery"
+  state_topic: "smartthings/Front Door/battery"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Front Door Temperature"
+  state_topic: "smartthings/Front Door/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "Living Room Window Temperature"
+  state_topic: "smartthings/Living Room Window/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "Black tortoise cage lamp power"
+  state_topic: "smartthings/black cage heat lamp/power"
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: "White tortoise cage lamp power"
+  state_topic: "smartthings/white cage heat lamp/power"
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: "Tortoise UV lamps power"
+  state_topic: "smartthings/Tortoise UV Lamps/power"
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: "Living Room Window"
+  state_topic: "smartthings/Living Room Window/contact"
+
+- platform: mqtt
+  name: "Tortoise Black temp"
+  state_topic: "smartthings/Turnip Temperature/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "Tortoise White temp"
+  state_topic: "smartthings/Pumpkin Temperature/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "Tortoise Ceramics Power"
+  state_topic: "smartthings/Tortoise Ceramic Heaters/power"
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: "Turnip Sensor Battery"
+  state_topic: "smartthings/Turnip Temperature/battery"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Pumpkin Sensor Battery"
+  state_topic: "smartthings/Pumpkin Temperature/battery"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Black cage Sensor Contact"
+  state_topic: "smartthings/Turnip Temperature/contact"
+
+- platform: mqtt
+  name: "White cage Sensor Contact"
+  state_topic: "smartthings/Pumpkin Temperature/contact"
+
+- platform: mqtt
+  name: "Kitchen under cupboard switch"
+  state_topic: "smartthings/Kitchen motion/motion"
+
+- platform: template
+  sensors:
+    solar_elevation:
+      value_template: '{{ states.sun.sun.attributes.elevation }}'
+      friendly_name: 'Sun elevation'
+      unit_of_measurement: 'deg'
+    sunrise:
+      value_template: "{% set tempvar = ((as_timestamp(states.sun.sun.attributes.next_rising)) | timestamp_local) %}{{ tempvar[11:16] }}"
+    sunset:
+      value_template: "{% set tempvar = ((as_timestamp(states.sun.sun.attributes.next_setting)) | timestamp_local) %}{{ tempvar[11:16] }}"
+    wtclamp:
+      friendly_name: "Torts Lamp White"
+      value_template: >-
+        {%- if is_state("switch.white_cage_heat_lamp", "off") %}
+            off
+        {% elif float(states.sensor.white_tortoise_cage_lamp_power.state) < 10 %}
+            manual
+        {% elif is_state("switch.white_cage_heat_lamp", "on") %}
+            on
+        {%- endif %}
+
+    btclamp:
+      friendly_name: "Torts Lamp Black"
+      value_template: >-
+        {%- if is_state("switch.black_cage_heat_lamp", "off") %}
+            off
+        {% elif float(states.sensor.black_tortoise_cage_lamp_power.state) < 10 %}
+            manual
+        {% elif is_state("switch.black_cage_heat_lamp", "on") %}
+            on
+        {%- endif %}
+
+    uvlamps:
+      friendly_name: "Torts Lamp UV"
+      value_template: >-
+        {%- if is_state("switch.tortoise_uv_lamps", "off") %}
+            off
+        {% elif float(states.sensor.tortoise_uv_lamps_power.state) < 10 %}
+            manual
+        {% elif is_state("switch.tortoise_uv_lamps", "on") %}
+            on
+        {%- endif %}
+    
+    tortheater:
+      friendly_name: "Torts Ceramics"
+      value_template: >-
+        {%- if is_state("switch.tortoise_ceramic_heaters", "off") %}
+            off
+        {% elif float(states.sensor.tortoise_ceramics_power.state) < 10 %}
+            manual
+        {% elif is_state("switch.tortoise_ceramic_heaters", "on") %}
+            on
+        {%- endif %}

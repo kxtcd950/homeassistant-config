@@ -1,0 +1,13 @@
+.HA_VERSION
+deps-nonroot/
+.uuid
+deps-old/
+deps/
+home-assistant.log
+home-assistant_v2.db
+secrets.yaml
+README.md
+ios.conf
+known_devices.yaml
+phue.conf
+www/

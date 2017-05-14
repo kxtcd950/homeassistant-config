@@ -1,0 +1,55 @@
+# Weather Prediction
+- platform: yr
+
+- platform: mqtt
+  name: "Living Room Sensor Battery"
+  state_topic: "smartthings/Living Room Window/battery"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Front Door"
+  state_topic: "smartthings/Front Door/contact"
+
+- platform: mqtt
+  name: "Front Door Sensor Battery"
+  state_topic: "smartthings/Front Door/battery"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Front Door Temperature"
+  state_topic: "smartthings/Front Door/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "Living Room Window Temperature"
+  state_topic: "smartthings/Living Room Window/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "Tortoise UV Lamps power"
+  state_topic: "smartthings/Tortoise UV Lamps/power"
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: "Living Room Window"
+  state_topic: "smartthings/Living Room Window/contact"
+
+#  - platform: speedtest
+#    minute:
+#      - 0
+#      - 15
+#      - 30
+#      - 45
+#    monitored_conditions:
+#      - ping
+
+- platform: mqtt
+  name: "White cage Heat Lamps power"
+  state_topic: "smartthings/white cage heat lamp/power"
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: "Black cage Heat Lamps power"
+  state_topic: "smartthings/black cage heat lamp/power"
+  unit_of_measurement: "W"
+
