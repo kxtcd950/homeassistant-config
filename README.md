@@ -6,3 +6,6 @@ Also, so do the hue tap devices I've got; there's a python poller on my network 
 
 A lot of the automations are for turning lights on and off in time with the sun's elevation.
 
+Added an input boolean to toggle the tortoise lights switching on at sunrise instead of a fixed 6:00am, this is to give the tortoises more seasonal variation, but allow for summer (where sunrise is obscenely early) to give them a little more down-time.
+
+Added a scene and new automation for Fridays (when instead of going to bed, I sit downstairs and play PS4 games) so that I'm not bathed in darkness at 22:20.  There's a switchoff for gaming nights which acts as an alarm clock for me to finally go to bed (without this, sometimes I forget).
