@@ -5,16 +5,14 @@ homeassistant:
   elevation: 65
   unit_system: metric
   time_zone: Europe/London
-  customize:
-    zone.home:
-      track_ios: true
-    zone.datapath: 
-      track_ios: true
-    zone.mums:
-      track_ios: true
+  customize: !include customize.yaml
 
-logger:
-  default: critical
+recorder:
+  purge_days: 7
+  db_url: !secret mysql_password
+
+#logger:
+#  default: critical
 
 light:
   platform: hue
@@ -69,7 +67,7 @@ group: !include config/group/lights.yaml
 
 scene: !include config/scenes.yaml
 
-automation: !include config/automation.yaml
+automation: !include config/automations.yaml
 
 shell_command: !include config/shellcommands.yaml
 
@@ -111,3 +109,7 @@ input_boolean:
   kitmocorr:
     name: Kitchen Motion Correction
     initial: off
+  torts_sun_based:
+    name: Tortoise lights with sun
+    initial: off
+

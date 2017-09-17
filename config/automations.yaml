@@ -1,4 +1,5 @@
 - alias: 'Sun fading'
+  id: Sun_fading
   trigger:
     platform: numeric_state
     entity_id: sun.Sun
@@ -12,6 +13,7 @@
         entity_id: input_boolean.sun_going_down
 
 - alias: 'Turn more lights on as the sun gets dimmer'
+  id: more_lights_sun_dimmer
   trigger:
     platform: numeric_state
     entity_id: sun.sun
@@ -26,6 +28,7 @@
     entity_id: scene.more_lights
 
 - alias: 'Dusk all lights on'
+  id: dusk_all_lights_on
   trigger:
     platform: numeric_state
     entity_id: sun.sun
@@ -39,10 +42,20 @@
     - service: scene.turn_on
       entity_id: scene.all_lights_on
 
-- alias: 'Goodnight'
+- alias: 'Goodnight normal'
+  id: goodnight
   trigger:
     platform: time
-    after: "22:20:00"
+    at: "22:20:00"
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - sat
+        - sun
   action:
     - service: scene.turn_on
       entity_id: scene.all_lights_off
@@ -53,18 +66,71 @@
       data:
         entity_id: input_boolean.sun_inhibit_action
 
-- alias: 'Tortoises night night'
+- alias: 'game time'
+  id: game_time
   trigger:
     platform: time
-    after: "18:00:00"
+    at: "22:20:00"
+  condition:
+    - condition: time
+      weekday:
+        - fri
+  action:
+    - service: scene.turn_on
+      entity_id: scene.gaming_time
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.sun_going_down
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.sun_inhibit_action
+
+- alias: 'gaming Goodnight'
+  id: gaming_goodnight
+  trigger:
+    platform: time
+    at: "00:00:00"
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: scene.turn_on
+      entity_id: scene.all_lights_off
+
+- alias: 'Tortoises night night'
+  id: torts_night_night
+  trigger:
+    platform: time
+    at: "18:00:00"
+  condition:
+    condition: state
+    entity_id: input_boolean.torts_sun_based
+    state: 'off'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.all_tortoise_lights_off
+
+- alias: 'tortoise sundown'
+  id: torts_sundown
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 0
+  condition:
+    condition: state
+    entity_id: input_boolean.torts_sun_based
+    state: 'on'
   action:
     - service: scene.turn_on
       entity_id: scene.all_tortoise_lights_off
 
 - alias: 'Tortoise heating on'
+  id: tort_heating_on
   trigger:
     platform: time
-    after: "21:30"
+    at: "21:30:00"
   condition:
     condition: state
     entity_id: input_boolean.tortheaters
@@ -73,22 +139,45 @@
     - service: scene.turn_on
       entity_id: scene.Tortoise_ceramic_heat_on
       
-- alias: 'Tortoises good morning'
+- alias: 'Tortoise sunrise'
+  id: tort_sunrise
   trigger:
-    platform: time
-    after: "06:15:00"
+    platform: numeric_state
+    entity_id: sun.Sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 0.0
+  condition:
+    condition: state
+    entity_id: input_boolean.torts_sun_based
+    state: 'on'
   action:
     - service: scene.turn_on
       entity_id: scene.all_tortoise_lights_on
     - service: scene.turn_on
       entity_id: scene.Tortoise_ceramic_heat_off
 
-# This next one resets all automations at just after midnight, to on so that automations which
-# are turned off as part of a manual override (a button push) reset to on again
-- alias: 'Reset Automations'
+- alias: 'Tortoises good morning'
+  id: tort_good_morning
   trigger:
     platform: time
-    after: "00:00:01"
+    at: "06:00:00"
+  condition:
+    condition: state
+    entity_id: input_boolean.torts_sun_based
+    state: 'off'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.all_tortoise_lights_on
+    - service: scene.turn_on
+      entity_id: scene.Tortoise_ceramic_heat_off
+
+# This next one resets all automations to on at just after midnight, so that automations which
+# are turned off as part of a manual override (a button push) reset to on again
+- alias: 'Reset Automations'
+  id: reset_automation
+  trigger:
+    platform: time
+    at: "00:00:01"
   action:
     - service: automation.turn_on
       entity_id: automation.Dusk_all_lights_on
@@ -96,9 +185,10 @@
       entity_id: automation.Turn_more_lights_on_as_the_sun_gets_dimmer
 
 - alias: 'Good morning'
+  id: good_morning
   trigger:
     platform: time
-    after: "05:29:00"
+    at: "05:29:00"
   condition:
     condition: sun
     before: sunrise
@@ -111,9 +201,10 @@
         entity_id: input_boolean.alarm_sequence_running
 
 - alias: 'WakeyWakeyRiseAndShine'
+  id: wake_up_early
   trigger:
     platform: time
-    after: "05:50:00"
+    at: "05:50:00"
   condition:
     condition: sun
     before: sunrise
@@ -123,9 +214,10 @@
     entity_id: scene.wakey_wakey
 
 - alias: 'Reset bedroom light to sensible levels'
+  id: bed_light_sensible
   trigger:
     platform: time
-    after: "06:20:00"
+    at: "06:20:00"
   condition:
     condition: sun
     before: sunrise
@@ -137,6 +229,7 @@
 # As a backstop, this also turns on the automations which the tap "off" buttons turn off to prevent the lights
 # coming back on in summer when we're in bed early.
 - alias: 'Turn off lights after sunrise'
+  id: lights_off_after_sunrise
   trigger:
     platform: numeric_state
     entity_id: sun.Sun
@@ -158,6 +251,7 @@
 # result: just turn off lights.
 #
 - alias: 'Hallway tap face button'
+  id: tap1_lights_off_no_sunset
   trigger:
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Face
@@ -168,13 +262,14 @@
     state: 'off'
   action:
     - service: scene.turn_on
-      entity_id: scene.all_lights_off
+      entity_id: scene.guest_room_off
 
 #
 # Special case tap off button - sunset sequence has started, ignore remainder of sequence.
 # result: turn off lights, and set inhibit input_boolean to stop other automations firing.
 #
 - alias: 'Hallway tap face button'
+  id: tap1_lights_off_after_sunset
   trigger:
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Face
@@ -185,12 +280,13 @@
     state: 'on'
   action:
     - service: scene.turn_on
-      entity_id: scene.all_lights_off
+      entity_id: scene.guest_room_off
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.sun_inhibit_action
 
 - alias: 'Bedroom tap face button'
+  id: tap2_lights_off_no_sunset
   trigger:
     platform: mqtt
     topic: huepoller/tap/Bedroom tap/Face
@@ -204,6 +300,7 @@
       entity_id: scene.all_lights_off
 
 - alias: 'Bedroom tap face button'
+  id: tap2_lights_off_after_sunset
   trigger:
     platform: mqtt
     topic: huepoller/tap/Bedroom tap/Face
@@ -220,15 +317,17 @@
         entity_id: input_boolean.sun_inhibit_action
 
 - alias: 'Hallway tap button two'
+  id: tap1_guest_lights_off
   trigger:
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Two
     payload: 'pressed'
   action:
     service: scene.turn_on
-    entity_id: scene.all_lights_on
+    entity_id: scene.guest_room_on
 
 - alias: 'Bedroom tap button 2 bathroom run'
+  id: tap2_bathroom_run
   trigger:
     platform: mqtt
     topic: huepoller/tap/Bedroom tap/Two
@@ -238,6 +337,7 @@
     entity_id: scene.nighttime_landing_light
 
 - alias: 'Bedroom tap button 3 kitchen run'
+  id: tap2_kitchen_run
   trigger:
     platform: mqtt
     topic: huepoller/tap/Bedroom tap/Three
@@ -246,16 +346,28 @@
     service: scene.turn_on
     entity_id: scene.nighttime_to_kitchen
 
-- alias: 'Hallway tap button 3 kitchen run'
+- alias: 'Hallway tap button 3 bathroom run'
+  id: tap1_bathroom_run
   trigger:
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Three
     payload: 'pressed'
   action:
     service: scene.turn_on
-    entity_id: scene.nighttime_to_kitchen
+    entity_id: scene.nighttime_landing_light
+
+- alias: 'Hallway tap button 4 bathroom run'
+  id: tap1_landing_off
+  trigger:
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Four
+    payload: 'pressed'
+  action:
+    service: scene.turn_on
+    entity_id: scene.nighttime_landing_light_off
 
 - alias: 'Kitchen under cupboard lights'
+  id: kitchen_sensor_lights_on
   trigger:
     platform: mqtt
     topic: smartthings/Kitchen motion/motion
@@ -272,6 +384,7 @@
         entity_id: input_boolean.kitmocorr
 
 - alias: 'Kitchen under cupboard lights no motion'
+  id: kitchen_sensor_lights_off
   trigger:
     platform: mqtt
     topic: smartthings/Kitchen motion/motion
@@ -286,6 +399,7 @@
         entity_id: input_boolean.kitmocorr
 
 - alias: "Doorbell"
+  id: doorbell
   trigger:
     platform: mqtt
     topic: smartthings/Doorbell/contact

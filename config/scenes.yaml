@@ -184,6 +184,39 @@
     light.maries_room:
       state: off
 
+- name: gaming time
+  entities:
+    light.Landing:
+      state: off
+    light.Bottom_of_stairs:
+      state: off
+    light.Front_Room:
+      state: off
+    light.Front_room_table_lamp:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Hallway:
+      state: off
+    light.Dining_room:
+      state: off
+    light.Porch:
+      state: off
+    light.our_bedroom:
+      state: off
+    light.maries_room:
+      state: off
+
+- name: guest_room_off
+  entities:
+    light.maries_room:
+      state: off
+
+- name: guest_room_on
+  entities:
+    light.maries_room:
+      state: on
+
 - name: Bedtime
   entities:
     light.our_bedroom:
@@ -247,6 +280,11 @@
       state: on
       brightness: 70
       xy_color: [ 0.5125, 0.4149 ]
+
+- name: Nighttime landing light off
+  entities:
+    light.landing:
+      state: off
 
 - name: Nighttime to kitchen
   entities:

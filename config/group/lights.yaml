@@ -65,6 +65,8 @@ otherstuff:
     - automation.Turn_more_lights_on_as_the_sun_gets_dimmer
     - automation.Dusk_all_lights_on
     - automation.Goodnight
+    - automation.gaming_goodnight
+    - automation.game_time
     - automation.Tortoises_night_night
     - automation.Tortoises_good_morning
     - automation.Good_morning
@@ -76,6 +78,7 @@ otherstuff:
     - automation.Bedroom_tap_button_2_bathroom_run
     - automation.Bedroom_tap_button_3_kitchen_run
     - automation.kitchen_under_cupboard_lights
+    - automation.reset_bedroom_light_to_sensible_levels
     - input_boolean.sun_inhibit_action
     - input_boolean.sun_going_down
     - input_boolean.kitmocorr
@@ -112,3 +115,4 @@ default_view:
     - sensor.uvlamps
     - sensor.tortheater
     - input_boolean.tortheaters
+    - input_boolean.torts_sun_based
