@@ -105,6 +105,7 @@ default_view:
     - media_player.living_room_tv
     - sensor.living_room_window
     - sensor.front_door
+    - sensor.fridge_door
     - sensor.living_room_window_temperature
     - sensor.front_door_temperature
     - sensor.tortoise_black_temp
