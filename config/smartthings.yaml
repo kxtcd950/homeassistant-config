@@ -11,6 +11,10 @@
   state_topic: "smartthings/Front Door/contact"
 
 - platform: mqtt
+  name: "Fridge Door"
+  state_topic: "smartthings/Dining Room/contact"
+
+- platform: mqtt
   name: "Front Door Sensor Battery"
   state_topic: "smartthings/Front Door/battery"
   unit_of_measurement: "%"
