@@ -8,8 +8,12 @@ homeassistant:
   customize: !include customize.yaml
 
 recorder:
-  purge_days: 7
+  purge_interval: 2
+  purge_keep_days: 7
   db_url: !secret mysql_password
+  exclude:
+    entities:
+      - media_player.living_room_tv
 
 #logger:
 #  default: critical
@@ -24,6 +28,9 @@ frontend:
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_password
+  ssl_certificate: /etc/letsencrypt/live/apollo.lucien.me.uk/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/apollo.lucien.me.uk/privkey.pem
+  base_url: apollo.lucien.me.uk
 
 # Checks for available updates
 updater:
@@ -86,6 +93,12 @@ media_player:
     hosts:
       - 192.168.30.190
       - 192.168.30.156
+      - 192.168.30.131
+  - platform: samsungtv
+    host: 90.155.51.229
+    port: 8001
+    name: living room tv
+    mac: CC:B1:1A:C3:37:72
 
 ios:
   health_check: true
@@ -112,4 +125,9 @@ input_boolean:
   torts_sun_based:
     name: Tortoise lights with sun
     initial: off
-
+  dining_override:
+    name: Dining Room switches on
+    initial: on
+  halloween_bell:
+    name: Halloween Bell
+    initial: off

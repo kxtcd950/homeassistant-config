@@ -44,6 +44,63 @@
       brightness: 95
       color_temp: 387
 
+- name: more_lights_nodining
+  entities:
+    light.Front_Room:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Front_room_table_lamp:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Bottom_of_stairs:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Landing:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.maries_room:
+      state: on
+      brightness: 95
+      color_temp: 387
+
+- name: All lights on Nodining
+  entities:
+    light.Landing:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Bottom_of_stairs:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Front_Room:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Front_room_table_lamp:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Hallway:
+      state: on
+      brightness: 114
+      color_temp: 387
+    light.Porch:
+      state: on
+      brightness: 54
+    light.our_bedroom:
+      state: on
+      brightness: 114
+      color_temp: 387
+    light.maries_room:
+      state: on
+      brightness: 114
+      color_temp: 387
+
 - name: All lights on
   entities:
     light.Landing:
@@ -149,6 +206,79 @@
     light.Dining_room:
       state: on
       brightness: 114
+      color_temp: 387
+    light.Porch:
+      state: on
+      brightness: 54
+    light.our_bedroom:
+      state: on
+      brightness: 191
+      color_temp: 387
+      transition: 20
+    light.maries_room:
+      state: on
+      brightness: 114
+      color_temp: 387
+
+- name: good morning nodining
+  entities:
+    light.Landing:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+      transition: 60
+    light.Bottom_of_stairs:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Front_Room:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Front_room_table_lamp:
+      state: on
+      brightness: 140
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Hallway:
+      state: on
+      brightness: 114
+      color_temp: 387
+    light.Porch:
+      state: on
+      brightness: 114
+      color_temp: 387
+    light.our_bedroom:
+      state: on
+      brightness: 80
+      color_temp: 387
+      transition: 60
+    light.maries_room:
+      state: on
+      brightness: 114
+      color_temp: 387
+
+- name: wakey wakey nodining
+  entities:
+    light.Landing:
+      state: on
+      brightness: 160
+      xy_color: [ 0.5125, 0.4149 ]
+      transition: 60
+    light.Bottom_of_stairs:
+      state: on
+      brightness: 160
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Front_Room:
+      state: on
+      brightness: 160
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Front_room_table_lamp:
+      state: on
+      brightness: 160
+      xy_color: [ 0.5125, 0.4149 ]
+    light.Hallway:
+      state: on
+      brightness: 127
       color_temp: 387
     light.Porch:
       state: on

@@ -7,6 +7,8 @@ home-assistant.log
 home-assistant_v2.db
 secrets.yaml
 ios.conf
+.ios.conf
 known_devices.yaml
 phue.conf
 www/
+letsencrypt.log

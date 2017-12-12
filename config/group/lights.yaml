@@ -69,6 +69,7 @@ otherstuff:
     - automation.game_time
     - automation.Tortoises_night_night
     - automation.Tortoises_good_morning
+    - automation.Tortoise_sunrise
     - automation.Good_morning
     - automation.WakeyWakeyRiseAndShine
     - automation.Turn_off_lights_after_sunrise
@@ -79,6 +80,9 @@ otherstuff:
     - automation.Bedroom_tap_button_3_kitchen_run
     - automation.kitchen_under_cupboard_lights
     - automation.reset_bedroom_light_to_sensible_levels
+    - automation.bed_light_sensible_nodining
+    - automation.doorbell
+    - automation.Doorbell_Halloween
     - input_boolean.sun_inhibit_action
     - input_boolean.sun_going_down
     - input_boolean.kitmocorr
@@ -86,7 +90,8 @@ otherstuff:
     - sensor.solar_elevation
     - sensor.sunrise
     - sensor.sunset
-
+    - input_boolean.halloween_bell
+    
 default_view:
   view: yes
   name: Default View
@@ -95,8 +100,9 @@ default_view:
     - scene.all_tortoise_lights_off
     - scene.all_lights_on
     - scene.all_lights_off
-    - media_player.dining_room
-    - media_player.LivingRoom
+    - media_player.kitchen
+    - media_player.living_room
+    - media_player.living_room_tv
     - sensor.living_room_window
     - sensor.front_door
     - sensor.living_room_window_temperature
@@ -116,3 +122,4 @@ default_view:
     - sensor.tortheater
     - input_boolean.tortheaters
     - input_boolean.torts_sun_based
+    - input_boolean.dining_override
