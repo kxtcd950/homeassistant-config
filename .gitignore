@@ -9,6 +9,6 @@ secrets.yaml
 ios.conf
 .ios.conf
 known_devices.yaml
-phue.conf
+phue*.conf
 www/
 letsencrypt.log
