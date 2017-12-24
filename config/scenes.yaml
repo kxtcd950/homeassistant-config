@@ -313,6 +313,8 @@
       state: off
     light.maries_room:
       state: off
+    light.kitchen_under_cupboard:
+      state: off
 
 - name: gaming time
   entities:
@@ -430,3 +432,21 @@
       state: on
       brightness: 60
       color_temp: 387
+
+- name: fridge_door_left_open
+  entities:
+    light.bottom_of_stairs:
+      state: on
+      brightness: 100
+      color_name: "red"
+    light.kitchen_under_cupboard:
+      state: on
+      brightness: 100
+      color_name: "red"
+
+- name: fridge_door_recovery
+  entities:
+    light.bottom_of_stairs:
+      state: off
+    light.kitchen_under_cupboard:
+      state: off

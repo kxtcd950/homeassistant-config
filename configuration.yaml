@@ -131,3 +131,10 @@ input_boolean:
   halloween_bell:
     name: Halloween Bell
     initial: off
+  christmas_bell:
+    name: Christmas Bell
+    initial: off
+  fridge_alarm:
+    name: Fridge Alarm
+    initial: off
+    

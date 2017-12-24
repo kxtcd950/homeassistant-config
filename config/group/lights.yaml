@@ -91,6 +91,7 @@ otherstuff:
     - sensor.sunrise
     - sensor.sunset
     - input_boolean.halloween_bell
+    - input_boolean.christmas_bell
     
 default_view:
   view: yes
