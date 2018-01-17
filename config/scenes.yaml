@@ -67,7 +67,7 @@
       brightness: 95
       color_temp: 387
 
-- name: All lights on Nodining
+- name: All_lights_on_Nodining
   entities:
     light.Landing:
       state: on
@@ -101,7 +101,7 @@
       brightness: 114
       color_temp: 387
 
-- name: All lights on
+- name: All_lights_on
   entities:
     light.Landing:
       state: on
@@ -139,7 +139,7 @@
       brightness: 114
       color_temp: 387
 
-- name: good morning
+- name: good_morning
   entities:
     light.Landing:
       state: on
@@ -180,7 +180,7 @@
       brightness: 114
       color_temp: 387
 
-- name: wakey wakey
+- name: wakey_wakey
   entities:
     light.Landing:
       state: on
@@ -220,7 +220,7 @@
       brightness: 114
       color_temp: 387
 
-- name: good morning nodining
+- name: good_morning_nodining
   entities:
     light.Landing:
       state: on
@@ -257,7 +257,7 @@
       brightness: 114
       color_temp: 387
 
-- name: wakey wakey nodining
+- name: wakey_wakey_nodining
   entities:
     light.Landing:
       state: on
@@ -293,7 +293,7 @@
       brightness: 114
       color_temp: 387
 
-- name: All lights off
+- name: All_lights_Off
   entities:
     light.Landing:
       state: off
@@ -316,7 +316,7 @@
     light.kitchen_under_cupboard:
       state: off
 
-- name: gaming time
+- name: gaming_time
   entities:
     light.Landing:
       state: off
@@ -356,7 +356,7 @@
       brightness: 60
       color_temp: 387
 
-- name: All Tortoise on
+- name: All_Tortoise_on
   entities:
     switch.black_cage_heat_lamp:
       state: on
@@ -367,7 +367,7 @@
     switch.tortoise_ceramic_heaters:
       state: on
 
-- name: All Tortoise off
+- name: All_Tortoise_off
   entities:
     switch.black_cage_heat_lamp:
       state: off
@@ -378,7 +378,7 @@
     switch.tortoise_ceramic_heaters:
       state: off
 
-- name: All Tortoise lights on
+- name: All_Tortoise_lights_on
   entities:
     switch.black_cage_heat_lamp:
       state: on
@@ -387,7 +387,7 @@
     switch.tortoise_uv_lamps:
       state: on
 
-- name: All Tortoise lights off
+- name: All_Tortoise_Lights_off
   entities:
     switch.black_cage_heat_lamp:
       state: off
@@ -396,29 +396,29 @@
     switch.tortoise_uv_lamps:
       state: off
 
-- name: Tortoise ceramic heat on
+- name: Tortoise_ceramic_heat_on
   entities:
     switch.tortoise_ceramic_heaters:
       state: on
 
-- name: Tortoise ceramic heat off
+- name: Tortoise_ceramic_heat_off
   entities:
     switch.tortoise_ceramic_heaters:
       state: off
 
-- name: Nighttime landing light
+- name: Nighttime_landing_light
   entities:
     light.landing:
       state: on
       brightness: 70
       xy_color: [ 0.5125, 0.4149 ]
 
-- name: Nighttime landing light off
+- name: Nighttime_landing_light_off
   entities:
     light.landing:
       state: off
 
-- name: Nighttime to kitchen
+- name: Nighttime_to_kitchen
   entities:
     light.Landing:
       state: on

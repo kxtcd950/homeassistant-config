@@ -265,7 +265,7 @@
         before_offset: "0:30:00"
       - condition: state
         entity_id: input_boolean.dining_override
-        state: 'off'
+        state: 'on'
   action:
     - service: scene.turn_on
       entity_id: scene.good_morning_nodining
@@ -286,7 +286,7 @@
         before_offset: "0:30:00"
       - condition: state
         entity_id: input_boolean.dining_override
-        state: 'off'
+        state: 'on'
   action:
     service: scene.turn_on
     entity_id: scene.wakey_wakey_nodining
@@ -297,9 +297,14 @@
     platform: time
     at: "06:20:00"
   condition:
-    condition: sun
-    before: sunrise
-    before_offset: "0:30:00"
+    condition: and
+    conditions:
+      - condition: sun
+        before: sunrise
+        before_offset: "0:30:00"
+      - condition: state
+        entity_id: input_boolean.dining_override
+        state: 'on'
   action:
     service: scene.turn_on
     entity_id: scene.all_lights_on_nodining
@@ -338,7 +343,7 @@
         before_offset: "0:30:00"
       - condition: state
         entity_id: input_boolean.dining_override
-        state: 'on'
+        state: 'off'
   action:
     service: scene.turn_on
     entity_id: scene.wakey_wakey
@@ -356,7 +361,7 @@
         before_offset: "0:30:00"
       - condition: state
         entity_id: input_boolean.dining_override
-        state: 'on'
+        state: 'off'
   action:
     service: scene.turn_on
     entity_id: scene.all_lights_on
