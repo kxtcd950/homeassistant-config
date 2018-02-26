@@ -12,3 +12,4 @@ known_devices.yaml
 phue*.conf
 www/
 letsencrypt.log
+entity_registry.yaml
