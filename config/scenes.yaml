@@ -338,6 +338,8 @@
       state: off
     light.maries_room:
       state: off
+    light.kitchen_under_cupboard:
+      state: off
 
 - name: guest_room_off
   entities:

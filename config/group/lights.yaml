@@ -125,3 +125,4 @@ default_view:
     - input_boolean.tortheaters
     - input_boolean.torts_sun_based
     - input_boolean.dining_override
+    - input_boolean.fridge_alarm

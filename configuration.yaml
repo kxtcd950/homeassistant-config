@@ -8,12 +8,15 @@ homeassistant:
   customize: !include customize.yaml
 
 recorder:
-  purge_interval: 2
-  purge_keep_days: 7
+  purge_interval: 1
+  purge_keep_days: 3
   db_url: !secret mysql_password
   exclude:
     entities:
       - media_player.living_room_tv
+      - sun.sun
+    domains:
+      - media_player
 
 #logger:
 #  default: critical

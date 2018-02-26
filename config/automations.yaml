@@ -134,8 +134,8 @@
       data:
         entity_id: input_boolean.sun_inhibit_action
 
-- alias: 'game time'
-  id: game_time
+- id: game_time
+  alias: game time
   trigger:
     platform: time
     at: "22:20:00"
@@ -153,7 +153,7 @@
       data:
         entity_id: input_boolean.sun_inhibit_action
 
-- alias: 'gaming Goodnight'
+- alias: 'gaming_goodnight'
   id: gaming_goodnight
   trigger:
     platform: time
@@ -643,8 +643,8 @@
       data:
         entity_id: input_boolean.fridge_alarm
 
-- alias: "Fridge Door Alarm"
-  id: fridge_door_alarm
+- alias: "Fridge Door Alarm Close"
+  id: fridge_door_alarm_close
   trigger:
     platform: state
     entity_id: sensor.fridge_door
