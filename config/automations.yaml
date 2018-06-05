@@ -390,40 +390,40 @@
 # Boggo standard pressed button on the tap - the sunset sequence hasn't started.
 # result: just turn off lights.
 #
-- alias: 'Hallway tap face button no sunset'
-  id: tap1_lights_off_no_sunset
-  trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Face
-    payload: 'pressed'
-  condition:
-    condition: state
-    entity_id: input_boolean.sun_going_down
-    state: 'off'
-  action:
-    - service: scene.turn_on
-      entity_id: scene.guest_room_off
+#- alias: 'Hallway tap face button no sunset'
+#  id: tap1_lights_off_no_sunset
+#  trigger:
+#    platform: mqtt
+#    topic: huepoller/tap/Hallway tap/Face
+#    payload: 'pressed'
+#  condition:
+#    condition: state
+#    entity_id: input_boolean.sun_going_down
+#    state: 'off'
+#  action:
+#    - service: scene.turn_on
+#      entity_id: scene.guest_room_off
 
 #
 # Special case tap off button - sunset sequence has started, ignore remainder of sequence.
 # result: turn off lights, and set inhibit input_boolean to stop other automations firing.
 #
-- alias: 'Hallway tap face button after sunset'
-  id: tap1_lights_off_after_sunset
-  trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Face
-    payload: 'pressed'
-  condition:
-    condition: state
-    entity_id: input_boolean.sun_going_down
-    state: 'on'
-  action:
-    - service: scene.turn_on
-      entity_id: scene.guest_room_off
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.sun_inhibit_action
+#- alias: 'Hallway tap face button after sunset'
+#  id: tap1_lights_off_after_sunset
+#  trigger:
+#    platform: mqtt
+#    topic: huepoller/tap/Hallway tap/Face
+#    payload: 'pressed'
+#  condition:
+#    condition: state
+#    entity_id: input_boolean.sun_going_down
+#    state: 'on'
+#  action:
+#    - service: scene.turn_on
+#      entity_id: scene.guest_room_off
+#    - service: input_boolean.turn_on
+#      data:
+#        entity_id: input_boolean.sun_inhibit_action
 
 - alias: 'Bedroom tap face button no sunset'
   id: tap2_lights_off_no_sunset
@@ -456,15 +456,15 @@
       data:
         entity_id: input_boolean.sun_inhibit_action
 
-- alias: 'Hallway tap button two'
-  id: tap1_guest_lights_off
-  trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Two
-    payload: 'pressed'
-  action:
-    service: scene.turn_on
-    entity_id: scene.guest_room_on
+#- alias: 'Hallway tap button two'
+#  id: tap1_guest_lights_off
+#  trigger:
+#    platform: mqtt
+#    topic: huepoller/tap/Hallway tap/Two
+#    payload: 'pressed'
+#  action:
+#    service: scene.turn_on
+#    entity_id: scene.guest_room_on
 
 - alias: 'Bedroom tap button 2 bathroom run'
   id: tap2_bathroom_run
@@ -486,25 +486,167 @@
     service: scene.turn_on
     entity_id: scene.nighttime_to_kitchen
 
-- alias: 'Hallway tap button 3 bathroom run'
-  id: tap1_bathroom_run
+#- alias: 'Hallway tap button 3 bathroom run'
+#  id: tap1_bathroom_run
+#  trigger:
+#    platform: mqtt
+#    topic: huepoller/tap/Hallway tap/Three
+#    payload: 'pressed'
+#  action:
+#    service: scene.turn_on
+#    entity_id: scene.nighttime_landing_light
+
+#- alias: 'Hallway tap button 4 bathroom run'
+#  id: tap1_landing_off
+#  trigger:
+#    platform: mqtt
+#    topic: huepoller/tap/Hallway tap/Four
+#    payload: 'pressed'
+#  action:
+#    service: scene.turn_on
+#    entity_id: scene.nighttime_landing_light_off
+
+# Anyone know a better toggle than use two automations and condition
+# the state of the lamp as to which one gets used for the trigger?
+# Next two act as a ligts (plural) toggle for all tortoise lights
+# (both cage heat lamps and both UV lamps).  If all lights are off,
+# then this will turn all lights on.  If any one (or more) lights
+# are on, then this will turn them all off.
+- alias: "Tortoise tap all torts on"
+  id: tort_tap_all_off_on
   trigger:
     platform: mqtt
-    topic: huepoller/tap/Hallway tap/Three
+    topic: huepoller/tap/Hallway tap/Face
     payload: 'pressed'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.White_cage_Heat_Lamp
+        state: 'off'
+      - condition: state
+        entity_id: switch.Black_cage_Heat_Lamp
+        state: 'off'
+      - condition: state
+        entity_id: switch.Tortoise_UV_Lamps
+        state: 'off'
   action:
     service: scene.turn_on
-    entity_id: scene.nighttime_landing_light
+    entity_id: scene.all_tortoise_lights_on
 
-- alias: 'Hallway tap button 4 bathroom run'
-  id: tap1_landing_off
+- alias: "Tortoise tap all torts off"
+  id: tort_tap_all_on_off
+  trigger:
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Face
+    payload: 'pressed'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: switch.White_cage_Heat_Lamp
+        state: 'on'
+      - condition: state
+        entity_id: switch.Black_cage_Heat_Lamp
+        state: 'on'
+      - condition: state
+        entity_id: switch.Tortoise_UV_Lamps
+        state: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.all_tortoise_lights_off
+
+# Next two act as a light toggle for the "White cage Heat Lamp"
+# id suffix is 'off_on' meaning it is off, transitioning to on.
+- alias: "Tortoise tap toggle white 1"
+  id: tort_tap_white_off_on
+  trigger:
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Two
+    payload: 'pressed'
+  condition:
+    condition: state
+    entity_id: switch.White_cage_Heat_Lamp
+    state: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: switch.White_cage_Heat_Lamp
+
+- alias: "Tortoise tap toggle white 2"
+  id: tort_tap_white_on_off
+  trigger:
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Two
+    payload: 'pressed'
+  condition:
+    condition: state
+    entity_id: switch.White_cage_Heat_Lamp
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.White_cage_Heat_Lamp
+
+# Next two act as a light toggle for the "Black cage Heat Lamp"
+# id suffix is 'off_on' meaning it is off, transitioning to on.
+- alias: "Tortoise tap toggle black 1"
+  id: tort_tap_black_off_on
   trigger:
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Four
     payload: 'pressed'
+  condition:
+    condition: state
+    entity_id: switch.Black_cage_Heat_Lamp
+    state: 'off'
   action:
-    service: scene.turn_on
-    entity_id: scene.nighttime_landing_light_off
+    service: switch.turn_on
+    entity_id: switch.Black_cage_Heat_Lamp
+
+- alias: "Tortoise tap toggle black 2"
+  id: tort_tap_black_on_off
+  trigger:
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Four
+    payload: 'pressed'
+  condition:
+    condition: state
+    entity_id: switch.Black_cage_Heat_Lamp
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.Black_cage_Heat_Lamp
+
+# Next two act as a light toggle for the "Tortoise UV Lamps"
+# id suffix is 'off_on' meaning it is off, transitioning to on.
+- alias: "Tortoise tap toggle UV 1"
+  id: tort_tap_uv_off_on
+  trigger:
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Three
+    payload: 'pressed'
+  condition:
+    condition: state
+    entity_id: switch.Tortoise_UV_Lamps
+    state: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: switch.Tortoise_UV_Lamps
+
+- alias:  "Tortoise tap toggle UV 2"
+  id: tort_tap_uv_on_off
+  trigger:
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Three
+    payload: 'pressed'
+  condition:
+    condition: state
+    entity_id: switch.Tortoise_UV_Lamps
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.Tortoise_UV_Lamps
+
+
 
 - alias: 'Kitchen under cupboard lights'
   id: kitchen_sensor_lights_on

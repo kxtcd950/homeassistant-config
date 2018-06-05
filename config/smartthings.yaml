@@ -38,15 +38,6 @@
   name: "Living Room Window"
   state_topic: "smartthings/Living Room Window/contact"
 
-#  - platform: speedtest
-#    minute:
-#      - 0
-#      - 15
-#      - 30
-#      - 45
-#    monitored_conditions:
-#      - ping
-
 - platform: mqtt
   name: "White cage Heat Lamps power"
   state_topic: "smartthings/white cage heat lamp/power"
@@ -56,4 +47,8 @@
   name: "Black cage Heat Lamps power"
   state_topic: "smartthings/black cage heat lamp/power"
   unit_of_measurement: "W"
+
+- platform: mqtt
+  name: "Front room tortoise lamp"
+  state_topic: "smartthings/front room tortoise lamp/contact"
 

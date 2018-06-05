@@ -16,6 +16,7 @@ downcontrol:
     - switch.black_cage_heat_lamp
     - switch.tortoise_uv_lamps
     - switch.tortoise_ceramic_heaters
+    - switch.front_room_tortoise_lamp
 
 upslights:
   name: Lights
@@ -50,10 +51,12 @@ tortoises:
     - sensor.black_tortoise_cage_lamp_power
     - sensor.tortoise_uv_lamps_power
     - sensor.tortoise_ceramics_power
+    - sensor.tortoise_fr_power
     - switch.white_cage_heat_lamp
     - switch.black_cage_heat_lamp
     - switch.tortoise_ceramic_heaters
     - switch.tortoise_uv_lamps
+    - switch.front_room_tortoise_lamp
     - input_boolean.tortheaters
 
 otherstuff:
@@ -92,10 +95,14 @@ otherstuff:
     - sensor.sunset
     - input_boolean.halloween_bell
     - input_boolean.christmas_bell
+    - input_boolean.tortheaters
+    - input_boolean.torts_sun_based
+    - input_boolean.dining_override
+    - input_boolean.fridge_alarm
     
 default_view:
   view: yes
-  name: Default View
+  name: Overview
   entities:
     - scene.all_tortoise_lights_on
     - scene.all_tortoise_lights_off
@@ -122,7 +129,5 @@ default_view:
     - sensor.btclamp
     - sensor.uvlamps
     - sensor.tortheater
-    - input_boolean.tortheaters
-    - input_boolean.torts_sun_based
-    - input_boolean.dining_override
-    - input_boolean.fridge_alarm
+    - sensor.tortfrpower
+    - group.downcontrol

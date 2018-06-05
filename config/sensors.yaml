@@ -50,6 +50,11 @@
   unit_of_measurement: "W"
 
 - platform: mqtt
+  name: "Front room tortoise lamp power"
+  state_topic: "smartthings/front room tortoise lamp/power"
+  unit_of_measurement: "W"
+
+- platform: mqtt
   name: "Living Room Window"
   state_topic: "smartthings/Living Room Window/contact"
 
@@ -141,5 +146,16 @@
         {% elif float(states.sensor.tortoise_ceramics_power.state) < 10 %}
             manual
         {% elif is_state("switch.tortoise_ceramic_heaters", "on") %}
+            on
+        {%- endif %}
+
+    tortfrpower:
+      friendly_name: "Front room tortoise lamp power"
+      value_template: >-
+        {%- if is_state("switch.front_room_tortoise_lamp", "off") %}
+            off
+        {% elif float(sensor.Front_room_tortoise_lamp_power.state) < 10 %}
+            manual
+        {% elif is_state("switch.front_room_tortoise_lamp", "on") %}
             on
         {%- endif %}
