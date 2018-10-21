@@ -27,9 +27,9 @@
   payload_off: "off"
 
 - platform: mqtt
-  name: "Front room tortoise lamp"
-  state_topic: "smartthings/front room tortoise lamp/switch"
-  command_topic: "smartthings/front room tortoise lamp/switch"
+  name: "Fish air pump"
+  state_topic: "smartthings/Fish Air Pump/switch"
+  command_topic: "smartthings/Fish Air Pump/switch"
   payload_on: "on"
   payload_off: "off"
 

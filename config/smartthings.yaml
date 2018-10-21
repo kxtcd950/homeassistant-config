@@ -49,6 +49,5 @@
   unit_of_measurement: "W"
 
 - platform: mqtt
-  name: "Front room tortoise lamp"
-  state_topic: "smartthings/front room tortoise lamp/contact"
-
+  name: "fish air pump power"
+  state_topic: "smartthings/Fish Air Pump/power"

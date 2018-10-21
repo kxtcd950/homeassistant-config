@@ -293,6 +293,39 @@
       brightness: 114
       color_temp: 387
 
+- name: All_lights_Off_manual
+  entities:
+    light.Landing:
+      state: off
+    light.Bottom_of_stairs:
+      state: off
+    light.Front_Room:
+      state: off
+    light.Front_room_table_lamp:
+      state: off
+    light.Hallway:
+      state: off
+    light.Dining_room:
+      state: off
+    light.Porch:
+      state: off
+    light.our_bedroom:
+      state: off
+    light.maries_room:
+      state: off
+    light.kitchen_under_cupboard:
+      state: off
+    switch.black_cage_heat_lamp:
+      state: off
+    switch.white_cage_heat_lamp:
+      state: off
+    switch.tortoise_uv_lamps:
+      state: off
+    switch.tortoise_ceramic_heaters:
+      state: off
+    switch.Front_room_tortoise_lamp:
+      state: off
+
 - name: All_lights_Off
   entities:
     light.Landing:
@@ -379,6 +412,8 @@
       state: off
     switch.tortoise_ceramic_heaters:
       state: off
+    switch.Front_room_tortoise_lamp:
+      state: off
 
 - name: All_Tortoise_lights_on
   entities:
@@ -396,6 +431,8 @@
     switch.white_cage_heat_lamp:
       state: off
     switch.tortoise_uv_lamps:
+      state: off
+    switch.Front_room_tortoise_lamp:
       state: off
 
 - name: Tortoise_ceramic_heat_on

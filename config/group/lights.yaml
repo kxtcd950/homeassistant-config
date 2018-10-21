@@ -56,8 +56,15 @@ tortoises:
     - switch.black_cage_heat_lamp
     - switch.tortoise_ceramic_heaters
     - switch.tortoise_uv_lamps
-    - switch.front_room_tortoise_lamp
     - input_boolean.tortheaters
+
+fish:
+  view: yes
+  name: Fish Control
+  entities:
+    - switch.fish_air_pump
+
+
 
 otherstuff:
   view: yes
@@ -75,6 +82,7 @@ otherstuff:
     - automation.Tortoise_sunrise
     - automation.Good_morning
     - automation.WakeyWakeyRiseAndShine
+    - automation.more_lights_sun_dimmer
     - automation.Turn_off_lights_after_sunrise
     - automation.Hallway_tap_face_button
     - automation.Hallway_tap_button_two
