@@ -13,3 +13,5 @@ phue*.conf
 www/
 letsencrypt.log
 entity_registry.yaml
+.storage/
+.homekit.state
