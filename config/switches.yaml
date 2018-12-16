@@ -33,3 +33,16 @@
   payload_on: "on"
   payload_off: "off"
 
+- platform: mqtt
+  name: "Front room decorations"
+  state_topic: "smartthings/living room decorations/switch"
+  command_topic: "smartthings/living room decorations/switch"
+  payload_on: "on"
+  payload_off: "off"
+
+- platform: mqtt
+  name: "Porch decorations"
+  state_topic: "smartthings/porch decorations/switch"
+  command_topic: "smartthings/porch decorations/switch"
+  payload_on: "on"
+  payload_off: "off"

@@ -64,6 +64,12 @@ fish:
   entities:
     - switch.fish_air_pump
 
+xmasdecs:
+   view: yes
+   name: Christmas Decorations
+   entities:
+     - switch.Porch_decorations
+     - switch.Front_room_decorations
 
 
 otherstuff:

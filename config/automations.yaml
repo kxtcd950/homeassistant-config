@@ -71,6 +71,10 @@
   action:
     - service: scene.turn_on
       entity_id: scene.all_lights_on_nodining
+    - service: switch.turn_on
+      entity_id: switch.porch_decorations
+    - service: switch.turn_on
+      entity_id: switch.front_room_decorations
 
 - alias: 'Dusk all lights on'
   id: dusk_all_lights_on
@@ -91,6 +95,10 @@
   action:
     - service: scene.turn_on
       entity_id: scene.all_lights_on
+    - service: switch.turn_on
+      entity_id: switch.porch_decorations
+    - service: switch.turn_on
+      entity_id: switch.front_room_decorations
 
 - alias: 'Goodnight dance night'
   id: dance_goodnight

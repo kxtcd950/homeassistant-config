@@ -325,6 +325,10 @@
       state: off
     switch.Front_room_tortoise_lamp:
       state: off
+    switch.Front_room_decorations:
+      state: off
+    switch.Porch_decorations:
+      state: off
 
 - name: All_lights_Off
   entities:
@@ -347,6 +351,10 @@
     light.maries_room:
       state: off
     light.kitchen_under_cupboard:
+      state: off
+    switch.Front_room_decorations:
+      state: off
+    switch.Porch_decorations:
       state: off
 
 - name: gaming_time

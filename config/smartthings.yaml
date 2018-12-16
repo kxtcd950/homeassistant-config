@@ -51,3 +51,11 @@
 - platform: mqtt
   name: "fish air pump power"
   state_topic: "smartthings/Fish Air Pump/power"
+
+- platform: mqtt
+  name: "porch decorations"
+  state_topic: "smartthings/porch decorations/power"
+
+- platform: mqtt
+  name: "living room decorations"
+  state_topic: "smartthings/living room decorations/power"
