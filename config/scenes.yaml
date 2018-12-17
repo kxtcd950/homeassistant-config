@@ -321,8 +321,6 @@
       state: off
     switch.tortoise_uv_lamps:
       state: off
-    switch.tortoise_ceramic_heaters:
-      state: off
     switch.Front_room_tortoise_lamp:
       state: off
     switch.Front_room_decorations:
