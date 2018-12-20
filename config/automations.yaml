@@ -722,6 +722,7 @@
     - service: media_player.media_stop
       data:
         entity_id: media_player.kitchen
+    - delay: '00:00:01'
     - service: media_player.volume_set
       data:
         entity_id: media_player.kitchen
@@ -751,6 +752,7 @@
     - service: media_player.media_stop
       data:
         entity_id: media_player.kitchen
+    - delay: '00:00:03'
     - service: media_player.volume_set
       data:
         entity_id: media_player.kitchen
