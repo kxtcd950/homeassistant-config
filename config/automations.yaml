@@ -125,13 +125,18 @@
     platform: time
     at: "22:20:00"
   condition:
-    - condition: time
-      weekday:
-        - tue
-        - wed
-        - thu
-        - sat
-        - sun
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - tue
+          - wed
+          - thu
+          - sat
+          - sun
+      - condition: state
+        entity_id: input_boolean.latenight
+        state: 'off'
   action:
     - service: scene.turn_on
       entity_id: scene.all_lights_off
@@ -313,6 +318,9 @@
       - condition: state
         entity_id: input_boolean.dining_override
         state: 'on'
+      - condition: state
+        entity_id: input_boolean.holiday
+        state: 'off'
   action:
     service: scene.turn_on
     entity_id: scene.wakey_wakey_nodining
@@ -331,6 +339,9 @@
       - condition: state
         entity_id: input_boolean.dining_override
         state: 'on'
+      - condition: state
+        entity_id: input_boolean.holiday
+        state: 'off'
   action:
     service: scene.turn_on
     entity_id: scene.all_lights_on_nodining
@@ -348,6 +359,9 @@
         before_offset: "0:30:00"
       - condition: state
         entity_id: input_boolean.dining_override
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.holiday
         state: 'off'
   action:
     - service: scene.turn_on
@@ -370,6 +384,9 @@
       - condition: state
         entity_id: input_boolean.dining_override
         state: 'off'
+      - condition: state
+        entity_id: input_boolean.holiday
+        state: 'off'
   action:
     service: scene.turn_on
     entity_id: scene.wakey_wakey
@@ -387,6 +404,9 @@
         before_offset: "0:30:00"
       - condition: state
         entity_id: input_boolean.dining_override
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.holiday
         state: 'off'
   action:
     service: scene.turn_on

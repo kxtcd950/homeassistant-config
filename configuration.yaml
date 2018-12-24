@@ -147,4 +147,10 @@ input_boolean:
   fridge_alarm:
     name: Fridge Alarm
     initial: off
+  holiday:
+    name: Holidays
+    initial: off
+  latenight:
+    name: Late night
+    initial: off
     

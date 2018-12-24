@@ -25,9 +25,21 @@ upslights:
     - light.our_bedroom
     - light.maries_room
 
+overrides:
+  name: Overrides
+  entities:
+    - input_boolean.latenight
+    - input_boolean.holiday
+
 #
 #  From here down, these are the groups for the frontend.
 #
+
+overrides_g:
+  view: yes
+  name: Overrides
+  entities:
+    - group.overrides
 
 downstairscollected:
   view: yes
