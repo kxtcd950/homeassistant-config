@@ -1,5 +1,5 @@
-- id: Sun_fading
-  alias: 'Sun fading'
+- alias: 'Sun fading'
+  id: Sun_fading 
   trigger:
     platform: numeric_state
     entity_id: sun.Sun
@@ -100,25 +100,6 @@
     - service: switch.turn_on
       entity_id: switch.front_room_decorations
 
-- alias: 'Goodnight dance night'
-  id: dance_goodnight
-  trigger:
-    platform: time
-    at: "22:30:00"
-  condition:
-    - condition: time
-      weekday:
-        - mon
-  action:
-    - service: scene.turn_on
-      entity_id: scene.all_lights_off
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.sun_going_down
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.sun_inhibit_action
-
 - alias: 'Goodnight normal'
   id: goodnight
   trigger:
@@ -129,10 +110,11 @@
     conditions:
       - condition: time
         weekday:
+          - mon
           - tue
           - wed
           - thu
-          - sat
+          - fri
           - sun
       - condition: state
         entity_id: input_boolean.latenight
@@ -147,15 +129,15 @@
       data:
         entity_id: input_boolean.sun_inhibit_action
 
-- id: game_time
-  alias: game time
+- alias: game time
+  id: game_time
   trigger:
     platform: time
     at: "22:20:00"
   condition:
     - condition: time
       weekday:
-        - fri
+        - sat
   action:
     - service: scene.turn_on
       entity_id: scene.gaming_time
@@ -297,6 +279,9 @@
       - condition: state
         entity_id: input_boolean.dining_override
         state: 'on'
+      - condition: state
+        entity_id: input_boolean.holiday
+        state: 'off'
   action:
     - service: scene.turn_on
       entity_id: scene.good_morning_nodining
@@ -345,6 +330,27 @@
   action:
     service: scene.turn_on
     entity_id: scene.all_lights_on_nodining
+
+- alias: 'Good morning holidays'
+  id: good_morning_holidays
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        before: sunrise
+        before_offset: "0:30:00"
+      - condition: state
+        entity_id: input_boolean.dining_override
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.holiday
+        state: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.good_morning
 
 - alias: 'Good morning'
   id: good_morning
