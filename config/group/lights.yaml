@@ -16,7 +16,6 @@ downcontrol:
     - switch.black_cage_heat_lamp
     - switch.tortoise_uv_lamps
     - switch.tortoise_ceramic_heaters
-    - switch.front_room_tortoise_lamp
 
 upslights:
   name: Lights
@@ -156,5 +155,4 @@ default_view:
     - sensor.btclamp
     - sensor.uvlamps
     - sensor.tortheater
-    - sensor.tortfrpower
     - group.downcontrol
