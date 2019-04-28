@@ -7,13 +7,6 @@
       - service: media_player.sonos_unjoin
         data_template:
           entity_id: "{{ sonos_entity }}"
-      - service: media_player.sonos_join
-        data_template:
-          master: media_player.kitchen_2
-          entity_id: 
-            - media_player.kitchen_2
-            - media_player.front_room_2
-            - media_player.bedroom_2
       - service: media_player.volume_set
         data_template:
           entity_id: "{{ sonos_entity }}"
