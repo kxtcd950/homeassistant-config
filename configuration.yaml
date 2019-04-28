@@ -21,6 +21,8 @@ recorder:
 #logger:
 #  default: critical
 
+system_health:
+
 light:
   platform: hue
   host: 192.168.20.133
