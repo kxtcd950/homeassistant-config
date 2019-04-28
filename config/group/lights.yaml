@@ -119,6 +119,7 @@ otherstuff:
     - sensor.solar_elevation
     - sensor.sunrise
     - sensor.sunset
+    - input_boolean.normal_bell
     - input_boolean.halloween_bell
     - input_boolean.christmas_bell
     - input_boolean.tortheaters

@@ -35,10 +35,10 @@
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Dining_room:
-      state: on
-      brightness: 114
-      color_temp: 387
+      #    light.Dining_room:
+      #      state: on
+      #      brightness: 114
+      #      color_temp: 387
     light.maries_room:
       state: on
       brightness: 95
@@ -123,10 +123,10 @@
       state: on
       brightness: 114
       color_temp: 387
-    light.Dining_room:
-      state: on
-      brightness: 114
-      color_temp: 387
+      #    light.Dining_room:
+      #      state: on
+      #      brightness: 114
+      #      color_temp: 387
     light.Porch:
       state: on
       brightness: 54
@@ -162,10 +162,10 @@
       state: on
       brightness: 114
       color_temp: 387
-    light.Dining_room:
-      state: on
-      brightness: 114
-      color_temp: 387
+      #    light.Dining_room:
+      #      state: on
+      #      brightness: 114
+      #      color_temp: 387
     light.Porch:
       state: on
       brightness: 114
@@ -203,10 +203,10 @@
       state: on
       brightness: 127
       color_temp: 387
-    light.Dining_room:
-      state: on
-      brightness: 114
-      color_temp: 387
+      #    light.Dining_room:
+      #      state: on
+      #      brightness: 114
+      #      color_temp: 387
     light.Porch:
       state: on
       brightness: 54
