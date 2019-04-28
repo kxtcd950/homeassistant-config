@@ -81,22 +81,28 @@ automation: !include config/automations.yaml
 
 shell_command: !include config/shellcommands.yaml
 
+script: !include config/scripts.yaml
+
 camera:
   - platform: local_file
     file_path: /home/dave/.tort-temps/tort-cage-temp-history.png
     name: torttemps
-  - platform: generic
-    still_image_url: http://90.155.51.236/Streaming/channels/1/picture 
-    username: admin
-    password: !secret camera_password
-    name: tortsnapshot
+    #  - platform: generic
+    #still_image_url: http://90.155.51.236/Streaming/channels/1/picture 
+    #username: admin
+    #password: !secret camera_password
+    #name: tortsnapshot
 
-media_player:
-  - platform: sonos
+sonos:
+#  media_player:
+#    interface_addr: 192.168.30.187
+  media_player:
     hosts:
       - 192.168.30.190
       - 192.168.30.156
       - 192.168.30.131
+
+media_player:
   - platform: samsungtv
     host: 90.155.51.229
     port: 8001
@@ -137,6 +143,9 @@ input_boolean:
     initial: off
   dining_override:
     name: Dining Room switches on
+    initial: on
+  normal_bell:
+    name: Normal bell
     initial: on
   halloween_bell:
     name: Halloween Bell

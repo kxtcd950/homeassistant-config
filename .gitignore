@@ -7,6 +7,7 @@ home-assistant.log
 home-assistant_v2.db
 secrets.yaml
 ios.conf
+*.swp
 .ios.conf
 known_devices.yaml
 phue*.conf
@@ -15,3 +16,4 @@ letsencrypt.log
 entity_registry.yaml
 .storage/
 .homekit.state
+nohup.out

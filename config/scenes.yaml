@@ -355,6 +355,14 @@
     switch.Porch_decorations:
       state: off
 
+- name: dinner_time
+  entities:
+    light.Front_room_table_lamp:
+      state: on
+      brightness: 191
+      color_temp: 387
+      transition: 20
+
 - name: gaming_time
   entities:
     light.Landing:
