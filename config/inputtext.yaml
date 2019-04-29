@@ -1,0 +1,20 @@
+#
+# Controls (hidden from UI normally) to make lights individually overridable.
+#
+
+# The brightness set by the automations for the bulb.
+frtl_abri:
+  name: "FRTLamp automation brightness"
+  initial: "0"
+# The colour set by the automations for the bulb.
+frtl_acol:
+  name: "FRTL automation colour"
+  initial: "0"
+# The brightness set by the user for the bulb.
+frtl_ubri:
+  name: "FRTL user brightness"
+  initial: "0"
+# The colour set by the user for the bulb.
+frtl_ucol:
+  name: "FRTL user colour"
+  initial: "0"
