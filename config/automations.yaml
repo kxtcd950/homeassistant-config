@@ -765,6 +765,15 @@
           content_type: "music"
           sonos_entity: "media_player.kitchen"
           volume: "0.60"
+    - service: notify.ios_daves_iphone
+      data:
+        title: "Doorbell pressed"
+        message: "There's somebody at the door"
+    - service: notify.ios_maries_iphone
+      data:
+        title: "Doorbell pressed"
+        message: "There's somebody at the door"
+
 
 - alias: "Doorbell Halloween"
   id: doorbell_halloween
