@@ -85,6 +85,8 @@ shell_command: !include config/shellcommands.yaml
 
 script: !include config/scripts.yaml
 
+input_text: !include config/inputtext.yaml
+
 camera:
   - platform: local_file
     file_path: /home/dave/.tort-temps/tort-cage-temp-history.png
@@ -124,44 +126,5 @@ ios:
     - name: Generic
       identifiier: 'Generic'
 
-input_boolean:
-  sun_going_down:
-    name: Sun is going down
-    initial: off
-  sun_inhibit_action:
-    name: Inhibit sundown actions
-    initial: off
-  tortheaters:
-    name: Tort Ceramics Control
-    initial: off
-  alarm_sequence_running:
-    name: Morning Alarm running
-    initial: off
-  kitmocorr:
-    name: Kitchen Motion Correction
-    initial: off
-  torts_sun_based:
-    name: Tortoise lights with sun
-    initial: off
-  dining_override:
-    name: Dining Room switches on
-    initial: on
-  normal_bell:
-    name: Normal bell
-    initial: on
-  halloween_bell:
-    name: Halloween Bell
-    initial: off
-  christmas_bell:
-    name: Christmas Bell
-    initial: off
-  fridge_alarm:
-    name: Fridge Alarm
-    initial: off
-  holiday:
-    name: holiday
-    initial: off
-  latenight:
-    name: latenight
-    initial: off
+input_boolean: !include config/inputbool.yaml
     

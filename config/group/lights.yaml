@@ -125,6 +125,18 @@ otherstuff:
     - input_boolean.torts_sun_based
     - input_boolean.dining_override
     - input_boolean.fridge_alarm
+
+testing:
+  view: yes
+  name: Testing
+  entities:
+    - input_text.frtl_abri
+    - input_text.frtl_acol
+    - input_text.frtl_ubri
+    - input_text.frtl_ucol
+    - input_boolean.frtl_override
+    - input_boolean.frtl_ao
+    - input_boolean.frtl_uo
     
 default_view:
   view: yes
@@ -156,3 +168,4 @@ default_view:
     - sensor.uvlamps
     - sensor.tortheater
     - group.downcontrol
+
