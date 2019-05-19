@@ -135,9 +135,14 @@
     platform: time
     at: "22:20:00"
   condition:
-    - condition: time
-      weekday:
-        - sat
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sat
+      - condition: state
+        entity_id: input_boolean.latenight
+        state: 'off'
   action:
     - service: scene.turn_on
       entity_id: scene.gaming_time
@@ -826,32 +831,17 @@
     to: 'open'
     for:
       hours: 0
-      minutes: 60
-      seconds: 0
+      minutes: 0
+      seconds: 120
   action:
-    - service: scene.turn_on
-      entity_id: scene.fridge_door_left_open
-    - service: input_boolean.turn_on
+    - service: notify.ios_daves_iphone
       data:
-        entity_id: input_boolean.fridge_alarm
-
-- alias: "Fridge Door Alarm Close"
-  id: fridge_door_alarm_close
-  trigger:
-    platform: state
-    entity_id: sensor.fridge_door
-    from: 'open'
-    to: 'closed'
-  condition: 
-    condition: state
-    entity_id: input_boolean.fridge_alarm
-    state: 'on'    
-  action:
-    - service: scene.turn_on
-      entity_id: scene.fridge_door_recovery
-    - service: input_boolean.turn_off
+        title: "Fridge Door alert"
+        message: "Fridge door has been open for two minutes"
+    - service: notify.ios_maries_iphone
       data:
-        entity_id: input_boolean.fridge_alarm
+        title: "Fridge Door alert"
+        message: "Fridge door has been open for two minutes"
 
 - alias: 'Start HomeKit'
   trigger:
