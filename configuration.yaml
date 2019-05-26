@@ -36,6 +36,8 @@ http:
   ssl_certificate: /etc/letsencrypt/live/apollo.lucien.me.uk/fullchain.pem
   ssl_key: /etc/letsencrypt/live/apollo.lucien.me.uk/privkey.pem
   base_url: apollo.lucien.me.uk
+  login_attempts_threshold: 10
+  ip_ban_enabled: true
 
 # Checks for available updates
 updater:
