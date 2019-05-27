@@ -9,7 +9,7 @@ homeassistant:
 
 recorder:
   purge_interval: 1
-  purge_keep_days: 3
+  purge_keep_days: 14
   db_url: !secret mysql_password
   exclude:
     entities:
