@@ -30,7 +30,7 @@
     initial: off
   fridge_alarm:
     name: Fridge Alarm
-    initial: off
+    initial: on
   holiday:
     name: holiday
     initial: off

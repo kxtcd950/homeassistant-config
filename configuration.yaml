@@ -25,8 +25,7 @@ recorder:
 logger:
   default: critical
   logs:
-    homeassistant.components.sensors.tortoise_white_temp: debug
-    homeassistant.components.sensors.tortoise_black_temp: debug
+    homeassistant.components.sensors: debug
 
 system_health:
 
