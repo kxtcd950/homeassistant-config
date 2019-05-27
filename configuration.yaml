@@ -81,7 +81,7 @@ group: !include config/group/lights.yaml
 
 scene: !include config/scenes.yaml
 
-automation: !include config/automations.yaml
+automation: !include automations.yaml
 
 shell_command: !include config/shellcommands.yaml
 
