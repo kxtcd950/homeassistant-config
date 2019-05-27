@@ -6,6 +6,9 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/London
   customize: !include customize.yaml
+  auth_providers:
+    - type: legacy_api_password
+      api_password: !secret http_password
 
 recorder:
   purge_interval: 1
@@ -18,8 +21,11 @@ recorder:
     domains:
       - media_player
 
-#logger:
-#  default: critical
+logger:
+  default: critical
+  logs:
+    homeassistant.components.sensors.tortoise_white_temp: debug
+    homeassistant.components.sensors.tortoise_black_temp: debug
 
 system_health:
 
@@ -31,8 +37,6 @@ light:
 frontend:
 
 http:
-  # Uncomment this to add a password (recommended!)
-  api_password: !secret http_password
   ssl_certificate: /etc/letsencrypt/live/apollo.lucien.me.uk/fullchain.pem
   ssl_key: /etc/letsencrypt/live/apollo.lucien.me.uk/privkey.pem
   base_url: apollo.lucien.me.uk
