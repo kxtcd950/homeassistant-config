@@ -69,6 +69,11 @@
   unit_of_measurement: "°C"
 
 - platform: mqtt
+  name: "Dining Room temp"
+  state_topic: "smartthings/Dining Room/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
   name: "Tortoise Ceramics Power"
   state_topic: "smartthings/Tortoise Ceramic Heaters/power"
   unit_of_measurement: "W"
