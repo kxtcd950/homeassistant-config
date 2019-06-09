@@ -11,7 +11,7 @@ ios.conf
 .ios.conf
 known_devices.yaml
 phue*.conf
-www/
+www/*.png
 letsencrypt.log
 entity_registry.yaml
 .storage/
