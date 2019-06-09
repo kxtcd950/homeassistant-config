@@ -240,6 +240,22 @@
                                 ]
                             },
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Testing config toggles",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "input_boolean.test_*"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
                         }
                     ],
                     "icon": "mdi:settings",
