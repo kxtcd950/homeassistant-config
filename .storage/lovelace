@@ -1,0 +1,307 @@
+{
+    "data": {
+        "config": {
+            "resources": [
+                {
+                    "type": "module",
+                    "url": "/local/mini-graph-card-bundle.js?v=0.4.3"
+                }
+            ],
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [
+                        "device_tracker.daves_iphone",
+                        "sensor.living_room_window",
+                        "sensor.front_door",
+                        "sensor.fridge_door",
+                        "sensor.yr_symbol",
+                        "sun.sun"
+                    ],
+                    "cards": [
+                        {
+                            "columns": 2,
+                            "entities": [
+                                {
+                                    "entity": "switch.tortoise_uv_lamps",
+                                    "icon": "mdi:color-helper",
+                                    "name": "UV lamps",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.tortoise_ceramic_heaters",
+                                    "icon": "mdi:fire",
+                                    "name": "Ceramic heaters",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.black_cage_heat_lamp",
+                                    "icon": "mdi:ceiling-light",
+                                    "name": "Turnip basking lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.white_cage_heat_lamp",
+                                    "icon": "mdi:ceiling-light",
+                                    "name": "Pumpkin basking lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Tortoise environmental control",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.fish_air_pump",
+                                    "icon": "mdi:fish",
+                                    "name": "Fish tank air pump",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Fish environmental control",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.tortoise_black_temp",
+                                    "name": "Turnip"
+                                },
+                                {
+                                    "entity": "sensor.tortoise_white_temp",
+                                    "name": "Pumpkin"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_temp",
+                                    "name": "Room"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "icon": "mdi:turtle",
+                            "name": "Tortoise temps over last 24 hours",
+                            "points_per_hour": 1,
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.tortoise_black_temp",
+                                    "name": "Turnip"
+                                },
+                                {
+                                    "entity": "sensor.tortoise_white_temp",
+                                    "name": "Pumpkin"
+                                },
+                                {
+                                    "entity": "sensor.dining_room_temp",
+                                    "name": "Room"
+                                }
+                            ],
+                            "hours_to_show": 168,
+                            "icon": "mdi:tortoise",
+                            "name": "Tortoise temps over last week",
+                            "points_per_hour": 0.25,
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "group.all_lights",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "All house lights",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "group.downlights",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Downstairs lights",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "group.upslights",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Upstairs lights",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "input_boolean.holiday",
+                                    "icon": "mdi:sleep",
+                                    "name": "Delay morning lights",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "input_boolean.latenight",
+                                    "icon": "mdi:eye-outline",
+                                    "name": "Keep lights on later",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Whole house lights",
+                            "type": "glance"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "light.front_room",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.front_room_table_lamp",
+                            "name": "Dining table",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.kitchen_under_cupboard",
+                            "name": "Kitchen cupboard",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.dining_room",
+                            "name": "Tortoise room",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.porch",
+                            "name": "Porch",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.hallway",
+                            "name": "Hallway",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.bottom_of_stairs",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.landing",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.our_bedroom",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.maries_room",
+                            "type": "light"
+                        }
+                    ],
+                    "icon": "mdi:lightbulb",
+                    "path": "downstairscollected",
+                    "title": "lights"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.porch_decorations",
+                                    "icon": "mdi:pine-tree",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.front_room_decorations",
+                                    "icon": "mdi:pine-tree",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Christmas decorations",
+                            "type": "glance"
+                        }
+                    ],
+                    "panel": false,
+                    "path": "xmasdecs",
+                    "title": "Xmas decs"
+                },
+                {
+                    "badges": [
+                        "sensor.solar_elevation",
+                        "sensor.sunrise",
+                        "sensor.sunset"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                "automation.good_morning",
+                                "automation.sun_fading",
+                                "automation.turn_more_lights_on_as_the_sun_gets_dimmer",
+                                "automation.dusk_all_lights_on",
+                                "automation.gaming_goodnight",
+                                "automation.game_time",
+                                "automation.tortoises_night_night",
+                                "automation.tortoises_good_morning",
+                                "automation.tortoise_sunrise",
+                                "automation.wakeywakeyriseandshine",
+                                "automation.turn_off_lights_after_sunrise",
+                                "automation.bedroom_tap_button_2_bathroom_run",
+                                "automation.bedroom_tap_button_3_kitchen_run",
+                                "automation.kitchen_under_cupboard_lights",
+                                "automation.reset_bedroom_light_to_sensible_levels",
+                                "automation.doorbell",
+                                "automation.doorbell_halloween"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Automation",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "input_boolean.sun_inhibit_action",
+                                "input_boolean.sun_going_down",
+                                "input_boolean.kitmocorr",
+                                "input_boolean.normal_bell",
+                                "input_boolean.halloween_bell",
+                                "input_boolean.christmas_bell",
+                                "input_boolean.tortheaters",
+                                "input_boolean.torts_sun_based",
+                                "input_boolean.dining_override",
+                                "input_boolean.fridge_alarm"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Input boolean",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "otherstuff",
+                    "title": "Automations"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}
