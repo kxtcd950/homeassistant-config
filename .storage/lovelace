@@ -236,6 +236,9 @@
                                 "exclude": [
                                     {
                                         "entity_id": "input_boolean.test_*"
+                                    },
+                                    {
+                                        "entity_id": "input_boolean.kitmocorr"
                                     }
                                 ],
                                 "include": [
