@@ -5,6 +5,10 @@
                 {
                     "type": "module",
                     "url": "/local/mini-graph-card-bundle.js?v=0.4.3"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/monster-card.js"
                 }
             ],
             "title": "Home",
@@ -223,6 +227,28 @@
                     "badges": [],
                     "cards": [
                         {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Config toggles",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "input_boolean.*"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        }
+                    ],
+                    "icon": "mdi:settings",
+                    "title": "Configuration"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
                             "entities": [
                                 {
                                     "entity": "switch.porch_decorations",
@@ -255,45 +281,37 @@
                     ],
                     "cards": [
                         {
-                            "entities": [
-                                "automation.good_morning",
-                                "automation.sun_fading",
-                                "automation.turn_more_lights_on_as_the_sun_gets_dimmer",
-                                "automation.dusk_all_lights_on",
-                                "automation.gaming_goodnight",
-                                "automation.game_time",
-                                "automation.tortoises_night_night",
-                                "automation.tortoises_good_morning",
-                                "automation.tortoise_sunrise",
-                                "automation.wakeywakeyriseandshine",
-                                "automation.turn_off_lights_after_sunrise",
-                                "automation.bedroom_tap_button_2_bathroom_run",
-                                "automation.bedroom_tap_button_3_kitchen_run",
-                                "automation.kitchen_under_cupboard_lights",
-                                "automation.reset_bedroom_light_to_sensible_levels",
-                                "automation.doorbell",
-                                "automation.doorbell_halloween"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Automation",
-                            "type": "entities"
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "On",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "automation.*",
+                                        "state": "on"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
                         },
                         {
-                            "entities": [
-                                "input_boolean.sun_inhibit_action",
-                                "input_boolean.sun_going_down",
-                                "input_boolean.kitmocorr",
-                                "input_boolean.normal_bell",
-                                "input_boolean.halloween_bell",
-                                "input_boolean.christmas_bell",
-                                "input_boolean.tortheaters",
-                                "input_boolean.torts_sun_based",
-                                "input_boolean.dining_override",
-                                "input_boolean.fridge_alarm"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Input boolean",
-                            "type": "entities"
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Off",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "automation.*",
+                                        "state": "off"
+                                    }
+                                ]
+                            },
+                            "show_empty": false,
+                            "type": "custom:monster-card"
                         }
                     ],
                     "path": "otherstuff",

@@ -37,12 +37,3 @@
   latenight:
     name: latenight
     initial: off
-
-  # Whether the user has overridden the state of the light
-  frtl_uo: 
-    name: "FRTL user override"
-  # The automations desired state of the light.
-  frtl_ao:
-    name: "FRTL automation controlled"
-  frtl_override:
-    name: "FRTL Override"
