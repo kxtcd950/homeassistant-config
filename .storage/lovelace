@@ -233,6 +233,11 @@
                                 "type": "entities"
                             },
                             "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "input_boolean.test_*"
+                                    }
+                                ],
                                 "include": [
                                     {
                                         "entity_id": "input_boolean.*"
