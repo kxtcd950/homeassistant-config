@@ -100,6 +100,16 @@
   name: "Kitchen under cupboard switch"
   state_topic: "smartthings/Kitchen motion/motion"
 
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'date_time_iso'
+    - 'time_date'
+    - 'time_utc'
+    - 'beat'
+
 - platform: template
   sensors:
     solar_elevation:
