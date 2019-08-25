@@ -65,58 +65,16 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.fish_air_pump",
+                                    "entity": "switch.pond_aeration",
                                     "icon": "mdi:fish",
-                                    "name": "Fish tank air pump",
+                                    "name": "Pond air bubbler",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 }
                             ],
-                            "title": "Fish environmental control",
+                            "title": "Pond Aeration",
                             "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.tortoise_black_temp",
-                                    "name": "Turnip"
-                                },
-                                {
-                                    "entity": "sensor.tortoise_white_temp",
-                                    "name": "Pumpkin"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_temp",
-                                    "name": "Room"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "icon": "mdi:turtle",
-                            "name": "Tortoise temps over last 24 hours",
-                            "points_per_hour": 1,
-                            "type": "custom:mini-graph-card"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.tortoise_black_temp",
-                                    "name": "Turnip"
-                                },
-                                {
-                                    "entity": "sensor.tortoise_white_temp",
-                                    "name": "Pumpkin"
-                                },
-                                {
-                                    "entity": "sensor.dining_room_temp",
-                                    "name": "Room"
-                                }
-                            ],
-                            "hours_to_show": 168,
-                            "icon": "mdi:tortoise",
-                            "name": "Tortoise temps over last week",
-                            "points_per_hour": 0.25,
-                            "type": "custom:mini-graph-card"
                         },
                         {
                             "columns": 3,
@@ -164,6 +122,40 @@
                             ],
                             "title": "Whole house lights",
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.fish_temp_top",
+                                    "name": "Top of pond"
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_bottom",
+                                    "name": "Bottom of pond"
+                                }
+                            ],
+                            "hours_to_show": 168,
+                            "icon": "mdi:fish",
+                            "name": "Fish pond temperatures",
+                            "points_per_hour": 0.25,
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.fish_temp_top",
+                                    "name": "Top of pond"
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_bottom",
+                                    "name": "Bottom of pond"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "icon": "mdi:fish",
+                            "name": "Fish pond temperature over last 24 hours",
+                            "points_per_hour": 1,
+                            "type": "custom:mini-graph-card"
                         }
                     ],
                     "icon": "mdi:home",
