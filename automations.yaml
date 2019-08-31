@@ -624,34 +624,34 @@
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.kitmocorr
-- alias: Doorbell
-  id: doorbell
+- id: doorbell
+  alias: Doorbell
   trigger:
-    platform: mqtt
-    topic: smartthings/Doorbell/contact
-    payload: closed
+  - entity_id: binary_sensor.doorbell_contact
+    from: 'on'
+    platform: state
+    to: 'off'
   condition:
-    condition: state
+  - condition: state
     entity_id: input_boolean.normal_bell
     state: 'on'
   action:
-  - service: script.turn_on
+  - data:
+      content_type: music
+      media_location: http://apollo.lucien.me.uk/~dave/doorbell/sound.mp3
+      play_length: 00:00:04
+      sonos_entity: media_player.kitchen
+      volume: '0.60'
     entity_id: script.audio_alert
-    data:
-      variables:
-        play_length: 00:00:04
-        media_location: http://apollo.lucien.me.uk/~dave/doorbell/sound.mp3
-        content_type: music
-        sonos_entity: media_player.kitchen
-        volume: '0.60'
-  - service: notify.ios_daves_iphone
-    data:
-      title: Doorbell pressed
+    service: script.audio_alert
+  - data:
       message: There's somebody at the door
-  - service: notify.ios_maries_iphone
-    data:
       title: Doorbell pressed
+    service: notify.ios_daves_iphone
+  - data:
       message: There's somebody at the door
+      title: Doorbell pressed
+    service: notify.ios_maries_iphone
 - alias: Doorbell Halloween
   id: doorbell_halloween
   trigger:
@@ -719,7 +719,6 @@
   action:
   - delay: 00:05
   - service: homekit.start
-
 - alias: Swap to halloween bell
   id: halloween_bell_swap_to
   trigger:
@@ -728,14 +727,13 @@
   condition:
     condition: template
     value_template: '{{ ((now().month == 10) and (now().day == 31)) }}'
-  action: 
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.halloween_bell
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.normal_bell
-  
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.halloween_bell
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.normal_bell
 - alias: Swap from halloween bell
   id: halloween_bell_swap_from
   trigger:
@@ -744,14 +742,13 @@
   condition:
     condition: template
     value_template: '{{ ((now().month == 11) and (now().day == 1)) }}'
-  action: 
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.halloween_bell
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.normal_bell
-  
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.halloween_bell
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.normal_bell
 - alias: Swap to christmas bell
   id: christmas_bell_swap_to
   trigger:
@@ -760,14 +757,13 @@
   condition:
     condition: template
     value_template: '{{ ((now().month == 12) and (now().day == 20)) }}'
-  action: 
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.christmas_bell
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.normal_bell
-  
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.christmas_bell
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.normal_bell
 - alias: Swap from christmas bell
   id: christmas_bell_swap_from
   trigger:
@@ -776,11 +772,10 @@
   condition:
     condition: template
     value_template: '{{ ((now().month == 1) and (now().day == 6)) }}'
-  action: 
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.normal_bell
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.christmas_bell
-  
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.normal_bell
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.christmas_bell

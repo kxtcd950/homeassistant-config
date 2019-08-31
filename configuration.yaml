@@ -22,11 +22,6 @@ recorder:
     domains:
       - media_player
 
-logger:
-  default: critical
-  logs:
-    homeassistant.components.sensors: debug
-
 system_health:
 
 light:
@@ -39,7 +34,7 @@ frontend:
 http:
   ssl_certificate: /etc/letsencrypt/live/apollo.lucien.me.uk/fullchain.pem
   ssl_key: /etc/letsencrypt/live/apollo.lucien.me.uk/privkey.pem
-  base_url: apollo.lucien.me.uk
+  base_url: https://apollo.lucien.me.uk:8123/
   login_attempts_threshold: 10
   ip_ban_enabled: true
 
@@ -77,7 +72,7 @@ sensor: !include config/sensors.yaml
 
 zone: !include config/zones.yaml
 
-device_tracker: !include config/device_tracker.yaml
+#device_tracker: !include config/device_tracker.yaml
 
 switch: !include config/switches.yaml
 
@@ -93,15 +88,15 @@ script: !include config/scripts.yaml
 
 input_text: !include config/inputtext.yaml
 
-camera:
-  - platform: local_file
-    file_path: /home/dave/.tort-temps/tort-cage-temp-history.png
-    name: torttemps
-    #  - platform: generic
-    #still_image_url: http://90.155.51.236/Streaming/channels/1/picture 
-    #username: admin
-    #password: !secret camera_password
-    #name: tortsnapshot
+#camera:
+#  - platform: local_file
+#    file_path: /home/dave/.tort-temps/tort-cage-temp-history.png
+#    name: torttemps
+#    #  - platform: generic
+#    #still_image_url: http://90.155.51.236/Streaming/channels/1/picture 
+#    #username: admin
+#    #password: !secret camera_password
+#    #name: tortsnapshot
 
 sonos:
 #  media_player:

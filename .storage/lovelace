@@ -16,113 +16,13 @@
                 {
                     "badges": [
                         "device_tracker.daves_iphone",
-                        "sensor.living_room_window",
-                        "sensor.front_door",
-                        "sensor.fridge_door",
+                        "binary_sensor.living_room_window_contact",
+                        "binary_sensor.front_door_contact",
+                        "binary_sensor.dining_room_contact",
                         "sensor.yr_symbol",
                         "sun.sun"
                     ],
                     "cards": [
-                        {
-                            "columns": 2,
-                            "entities": [
-                                {
-                                    "entity": "switch.tortoise_uv_lamps",
-                                    "icon": "mdi:color-helper",
-                                    "name": "UV lamps",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.tortoise_ceramic_heaters",
-                                    "icon": "mdi:fire",
-                                    "name": "Ceramic heaters",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.black_cage_heat_lamp",
-                                    "icon": "mdi:ceiling-light",
-                                    "name": "Turnip basking lamp",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.white_cage_heat_lamp",
-                                    "icon": "mdi:ceiling-light",
-                                    "name": "Pumpkin basking lamp",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                }
-                            ],
-                            "title": "Tortoise environmental control",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.pond_aeration",
-                                    "icon": "mdi:fish",
-                                    "name": "Pond air bubbler",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                }
-                            ],
-                            "title": "Pond Aeration",
-                            "type": "glance"
-                        },
-                        {
-                            "columns": 3,
-                            "entities": [
-                                {
-                                    "entity": "group.all_lights",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "All house lights",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.downlights",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Downstairs lights",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.upslights",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Upstairs lights",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "input_boolean.holiday",
-                                    "icon": "mdi:sleep",
-                                    "name": "Delay morning lights",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "input_boolean.latenight",
-                                    "icon": "mdi:eye-outline",
-                                    "name": "Keep lights on later",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                }
-                            ],
-                            "title": "Whole house lights",
-                            "type": "glance"
-                        },
                         {
                             "entities": [
                                 {
@@ -156,6 +56,75 @@
                             "name": "Fish pond temperature over last 24 hours",
                             "points_per_hour": 1,
                             "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "switch.pond_aeration",
+                                    "icon": "mdi:fish",
+                                    "name": "Fish air pump",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_top"
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_bottom"
+                                }
+                            ],
+                            "show_state": true,
+                            "title": "Fish Pond",
+                            "type": "glance"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "group.all_lights",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "All lights",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "group.upslights",
+                                    "icon": "mdi:ceiling-light",
+                                    "name": "Upstairs lights",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "group.downlights",
+                                    "icon": "mdi:lightbulb-outline",
+                                    "name": "Downstairs lights",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "input_boolean.holiday",
+                                    "icon": "mdi:sleep",
+                                    "name": "Holiday",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "input_boolean.latenight",
+                                    "icon": "mdi:lightbulb-off-outline",
+                                    "name": "Late night",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "House light control",
+                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:home",
@@ -165,6 +134,120 @@
                 {
                     "badges": [],
                     "cards": [
+                        {
+                            "columns": 2,
+                            "entities": [
+                                {
+                                    "entity": "light.bedroom",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Our bedroom",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.landing",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Landing",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.maries_room_2",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Cat Room",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.upstairs_landing",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Landing light",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Upstairs lights",
+                            "type": "glance"
+                        },
+                        {
+                            "columns": 2,
+                            "entities": [
+                                {
+                                    "entity": "light.bottom_of_stairs",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Stair lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.dining_room_2",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Dining Room",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.front_room",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Front Room",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.front_room_table_lamp",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Dining Table",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.hallway_2",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Hallway",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.porch",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "name": "Porch",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Downstairs lights",
+                            "type": "glance"
+                        },
                         {
                             "entity": "light.front_room",
                             "type": "light"

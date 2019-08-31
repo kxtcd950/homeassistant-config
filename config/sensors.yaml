@@ -6,100 +6,100 @@
     - humidity
     - temperature
     
-- platform: mqtt
-  name: "Living Room Sensor Battery"
-  state_topic: "smartthings/Living Room Window/battery"
-  unit_of_measurement: "%"
-
-- platform: mqtt
-  name: "Front Door"
-  state_topic: "smartthings/Front Door/contact"
-
-- platform: mqtt
-  name: "Fridge Door"
-  state_topic: "smartthings/Dining Room/contact"
-
-- platform: mqtt
-  name: "Front Door Sensor Battery"
-  state_topic: "smartthings/Front Door/battery"
-  unit_of_measurement: "%"
-
-- platform: mqtt
-  name: "Front Door Temperature"
-  state_topic: "smartthings/Front Door/temperature"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: "Living Room Window Temperature"
-  state_topic: "smartthings/Living Room Window/temperature"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: "Black tortoise cage lamp power"
-  state_topic: "smartthings/black cage heat lamp/power"
-  unit_of_measurement: "W"
-
-- platform: mqtt
-  name: "White tortoise cage lamp power"
-  state_topic: "smartthings/white cage heat lamp/power"
-  unit_of_measurement: "W"
-
-- platform: mqtt
-  name: "Tortoise UV lamps power"
-  state_topic: "smartthings/Tortoise UV Lamps/power"
-  unit_of_measurement: "W"
-
-- platform: mqtt
-  name: "Front room tortoise lamp power"
-  state_topic: "smartthings/front room tortoise lamp/power"
-  unit_of_measurement: "W"
-
-- platform: mqtt
-  name: "Living Room Window"
-  state_topic: "smartthings/Living Room Window/contact"
-
-- platform: mqtt
-  name: "Tortoise Black temp"
-  state_topic: "smartthings/Turnip Temperature/temperature"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: "Tortoise White temp"
-  state_topic: "smartthings/Pumpkin Temperature/temperature"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: "Dining Room temp"
-  state_topic: "smartthings/Dining Room/temperature"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: "Tortoise Ceramics Power"
-  state_topic: "smartthings/Tortoise Ceramic Heaters/power"
-  unit_of_measurement: "W"
-
-- platform: mqtt
-  name: "Turnip Sensor Battery"
-  state_topic: "smartthings/Turnip Temperature/battery"
-  unit_of_measurement: "%"
-
-- platform: mqtt
-  name: "Pumpkin Sensor Battery"
-  state_topic: "smartthings/Pumpkin Temperature/battery"
-  unit_of_measurement: "%"
-
-- platform: mqtt
-  name: "Black cage Sensor Contact"
-  state_topic: "smartthings/Turnip Temperature/contact"
-
-- platform: mqtt
-  name: "White cage Sensor Contact"
-  state_topic: "smartthings/Pumpkin Temperature/contact"
-
-- platform: mqtt
-  name: "Kitchen under cupboard switch"
-  state_topic: "smartthings/Kitchen motion/motion"
-
+#- platform: mqtt
+#  name: "Living Room Sensor Battery"
+#  state_topic: "smartthings/Living Room Window/battery"
+#  unit_of_measurement: "%"
+#
+#- platform: mqtt
+#  name: "Front Door"
+#  state_topic: "smartthings/Front Door/contact"
+#
+#- platform: mqtt
+#  name: "Fridge Door"
+#  state_topic: "smartthings/Dining Room/contact"
+#
+#- platform: mqtt
+#  name: "Front Door Sensor Battery"
+#  state_topic: "smartthings/Front Door/battery"
+#  unit_of_measurement: "%"
+#
+#- platform: mqtt
+#  name: "Front Door Temperature"
+#  state_topic: "smartthings/Front Door/temperature"
+#  unit_of_measurement: "°C"
+#
+#- platform: mqtt
+#  name: "Living Room Window Temperature"
+#  state_topic: "smartthings/Living Room Window/temperature"
+#  unit_of_measurement: "°C"
+#
+#- platform: mqtt
+#  name: "Black tortoise cage lamp power"
+#  state_topic: "smartthings/black cage heat lamp/power"
+#  unit_of_measurement: "W"
+#
+#- platform: mqtt
+#  name: "White tortoise cage lamp power"
+#  state_topic: "smartthings/white cage heat lamp/power"
+#  unit_of_measurement: "W"
+#
+#- platform: mqtt
+#  name: "Tortoise UV lamps power"
+#  state_topic: "smartthings/Tortoise UV Lamps/power"
+#  unit_of_measurement: "W"
+#
+#- platform: mqtt
+#  name: "Front room tortoise lamp power"
+#  state_topic: "smartthings/front room tortoise lamp/power"
+#  unit_of_measurement: "W"
+#
+#- platform: mqtt
+#  name: "Living Room Window"
+#  state_topic: "smartthings/Living Room Window/contact"
+#
+#- platform: mqtt
+#  name: "Tortoise Black temp"
+#  state_topic: "smartthings/Turnip Temperature/temperature"
+#  unit_of_measurement: "°C"
+#
+#- platform: mqtt
+#  name: "Tortoise White temp"
+#  state_topic: "smartthings/Pumpkin Temperature/temperature"
+#  unit_of_measurement: "°C"
+#
+#- platform: mqtt
+#  name: "Dining Room temp"
+#  state_topic: "smartthings/Dining Room/temperature"
+#  unit_of_measurement: "°C"
+#
+#- platform: mqtt
+#  name: "Tortoise Ceramics Power"
+#  state_topic: "smartthings/Tortoise Ceramic Heaters/power"
+#  unit_of_measurement: "W"
+#
+#- platform: mqtt
+#  name: "Turnip Sensor Battery"
+#  state_topic: "smartthings/Turnip Temperature/battery"
+#  unit_of_measurement: "%"
+#
+#- platform: mqtt
+#  name: "Pumpkin Sensor Battery"
+#  state_topic: "smartthings/Pumpkin Temperature/battery"
+#  unit_of_measurement: "%"
+#
+#- platform: mqtt
+#  name: "Black cage Sensor Contact"
+#  state_topic: "smartthings/Turnip Temperature/contact"
+#
+#- platform: mqtt
+#  name: "White cage Sensor Contact"
+#  state_topic: "smartthings/Pumpkin Temperature/contact"
+#
+#- platform: mqtt
+#  name: "Kitchen under cupboard switch"
+#  state_topic: "smartthings/Kitchen motion/motion"
+#
 - platform: mqtt
   name: "Fish temp top"
   state_topic: "pond/tele/SENSOR"
