@@ -170,74 +170,6 @@
   action:
   - service: scene.turn_on
     entity_id: scene.all_lights_off
-- alias: Tortoises night night
-  id: torts_night_night
-  trigger:
-    platform: time
-    at: '18:00:00'
-  condition:
-    condition: state
-    entity_id: input_boolean.torts_sun_based
-    state: 'off'
-  action:
-  - service: scene.turn_on
-    entity_id: scene.all_tortoise_lights_off
-- alias: tortoise sundown
-  id: torts_sundown
-  trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: 0
-  condition:
-    condition: state
-    entity_id: input_boolean.torts_sun_based
-    state: 'on'
-  action:
-  - service: scene.turn_on
-    entity_id: scene.all_tortoise_lights_off
-- alias: Tortoise heating on
-  id: tort_heating_on
-  trigger:
-    platform: time
-    at: '21:30:00'
-  condition:
-    condition: state
-    entity_id: input_boolean.tortheaters
-    state: 'on'
-  action:
-  - service: scene.turn_on
-    entity_id: scene.Tortoise_ceramic_heat_on
-- alias: Tortoise sunrise
-  id: tort_sunrise
-  trigger:
-    platform: numeric_state
-    entity_id: sun.Sun
-    value_template: '{{ state.attributes.elevation }}'
-    above: 0.0
-  condition:
-    condition: state
-    entity_id: input_boolean.torts_sun_based
-    state: 'on'
-  action:
-  - service: scene.turn_on
-    entity_id: scene.all_tortoise_lights_on
-  - service: scene.turn_on
-    entity_id: scene.Tortoise_ceramic_heat_off
-- id: tort_good_morning
-  alias: Tortoises good morning
-  trigger:
-  - at: 06:00:00
-    platform: time
-  condition:
-  - condition: state
-    entity_id: input_boolean.torts_sun_based
-    state: 'on'
-  action:
-  - entity_id: scene.all_tortoise_lights_on
-    service: scene.turn_on
-  - entity_id: scene.Tortoise_ceramic_heat_off
-    service: scene.turn_on
 - alias: Fish Air pump on morning
   id: fish_air_on
   trigger:
@@ -474,156 +406,79 @@
   action:
     service: scene.turn_on
     entity_id: scene.nighttime_to_kitchen
-- alias: Tortoise tap all torts on
-  id: tort_tap_all_off_on
+
+- id: tort_tap_all_toggle
+  alias: Tortoise tap all toggle
   trigger:
+  - payload: pressed
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Face
-    payload: pressed
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: switch.White_cage_Heat_Lamp
-      state: 'off'
-    - condition: state
-      entity_id: switch.Black_cage_Heat_Lamp
-      state: 'off'
-    - condition: state
-      entity_id: switch.Tortoise_UV_Lamps
-      state: 'off'
+  condition: []
   action:
-    service: scene.turn_on
-    entity_id: scene.all_tortoise_lights_on
-- alias: Tortoise tap all torts off
-  id: tort_tap_all_on_off
+    - service: switch.toggle
+      data:
+        entity_id: 
+          - switch.dining_room_sunshine
+          - switch.kitchen_sunshine
+
+- id: tort_tap_dining_toggle
+  alias: Tortoise tap dining toggle
   trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Face
-    payload: pressed
-  condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: switch.White_cage_Heat_Lamp
-      state: 'on'
-    - condition: state
-      entity_id: switch.Black_cage_Heat_Lamp
-      state: 'on'
-    - condition: state
-      entity_id: switch.Tortoise_UV_Lamps
-      state: 'on'
-  action:
-    service: scene.turn_on
-    entity_id: scene.all_tortoise_lights_off
-- alias: Tortoise tap toggle white 1
-  id: tort_tap_white_off_on
-  trigger:
+  - payload: pressed
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Two
-    payload: pressed
-  condition:
-    condition: state
-    entity_id: switch.White_cage_Heat_Lamp
-    state: 'off'
+  condition: []
   action:
-    service: switch.turn_on
-    entity_id: switch.White_cage_Heat_Lamp
-- alias: Tortoise tap toggle white 2
-  id: tort_tap_white_on_off
+    - service: switch.toggle
+      data:
+        entity_id: switch.dining_room_sunshine
+
+- id: tort_tap_kitchen_toggle
+  alias: Tortoise tap kitchen toggle
   trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Two
-    payload: pressed
-  condition:
-    condition: state
-    entity_id: switch.White_cage_Heat_Lamp
-    state: 'on'
-  action:
-    service: switch.turn_off
-    entity_id: switch.White_cage_Heat_Lamp
-- alias: Tortoise tap toggle black 1
-  id: tort_tap_black_off_on
-  trigger:
+  - payload: pressed
     platform: mqtt
     topic: huepoller/tap/Hallway tap/Four
-    payload: pressed
-  condition:
-    condition: state
-    entity_id: switch.Black_cage_Heat_Lamp
-    state: 'off'
+  condition: []
   action:
-    service: switch.turn_on
-    entity_id: switch.Black_cage_Heat_Lamp
-- alias: Tortoise tap toggle black 2
-  id: tort_tap_black_on_off
+    - service: switch.toggle
+      data:
+        entity_id: switch.kitchen_sunshine
+
+- id: kitchen_sensor_lights_on
+  alias: Kitchen under cupboard lights
   trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Four
-    payload: pressed
+  - entity_id: binary_sensor.kitchen_motion_motion
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
-    condition: state
-    entity_id: switch.Black_cage_Heat_Lamp
-    state: 'on'
-  action:
-    service: switch.turn_off
-    entity_id: switch.Black_cage_Heat_Lamp
-- alias: Tortoise tap toggle UV 1
-  id: tort_tap_uv_off_on
-  trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Three
-    payload: pressed
-  condition:
-    condition: state
-    entity_id: switch.Tortoise_UV_Lamps
-    state: 'off'
-  action:
-    service: switch.turn_on
-    entity_id: switch.Tortoise_UV_Lamps
-- alias: Tortoise tap toggle UV 2
-  id: tort_tap_uv_on_off
-  trigger:
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Three
-    payload: pressed
-  condition:
-    condition: state
-    entity_id: switch.Tortoise_UV_Lamps
-    state: 'on'
-  action:
-    service: switch.turn_off
-    entity_id: switch.Tortoise_UV_Lamps
-- alias: Kitchen under cupboard lights
-  id: kitchen_sensor_lights_on
-  trigger:
-    platform: mqtt
-    topic: smartthings/Kitchen motion/motion
-    payload: active
-  condition:
-    condition: state
+  - condition: state
     entity_id: input_boolean.kitmocorr
     state: 'off'
   action:
-  - service: light.toggle
+  - data:
+      entity_id: light.kitchen_under_cupboard
     entity_id: light.kitchen_under_cupboard
-  - service: input_boolean.turn_on
-    data:
+    service: light.toggle
+  - data:
       entity_id: input_boolean.kitmocorr
-- alias: Kitchen under cupboard lights no motion
-  id: kitchen_sensor_lights_off
+    service: input_boolean.turn_on
+- id: kitchen_sensor_lights_off
+  alias: Kitchen under cupboard lights no motion
   trigger:
-    platform: mqtt
-    topic: smartthings/Kitchen motion/motion
-    payload: inactive
+  - entity_id: binary_sensor.kitchen_motion_motion
+    from: 'on'
+    platform: state
+    to: 'off'
   condition:
-    condition: state
+  - condition: state
     entity_id: input_boolean.kitmocorr
     state: 'on'
   action:
-  - service: input_boolean.turn_off
-    data:
+  - data:
       entity_id: input_boolean.kitmocorr
+    service: input_boolean.turn_off
 - id: doorbell
   alias: Doorbell
   trigger:

@@ -18,9 +18,12 @@
                         "device_tracker.daves_iphone",
                         "binary_sensor.living_room_window_contact",
                         "binary_sensor.front_door_contact",
-                        "binary_sensor.dining_room_contact",
+                        "binary_sensor.fridge_door_contact",
                         "sensor.yr_symbol",
-                        "sun.sun"
+                        "sun.sun",
+                        "sensor.front_door_temperature_measurement",
+                        "sensor.fish_temp_bottom",
+                        "sensor.fish_temp_top"
                     ],
                     "cards": [
                         {
@@ -124,6 +127,25 @@
                                 }
                             ],
                             "title": "House light control",
+                            "type": "glance"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "switch.dining_room_sunshine",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.kitchen_sunshine",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Tortoise sun control",
                             "type": "glance"
                         }
                     ],
