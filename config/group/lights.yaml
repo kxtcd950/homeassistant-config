@@ -53,21 +53,6 @@ upstairscollected:
   entities:
     - group.upslights
 
-tortoises:
-  view: yes
-  name: Tortoise Control
-  entities:
-    - group.downcontrol
-    - sensor.white_tortoise_cage_lamp_power
-    - sensor.black_tortoise_cage_lamp_power
-    - sensor.tortoise_uv_lamps_power
-    - sensor.tortoise_ceramics_power
-    - sensor.tortoise_fr_power
-    - switch.white_cage_heat_lamp
-    - switch.black_cage_heat_lamp
-    - switch.tortoise_ceramic_heaters
-    - switch.tortoise_uv_lamps
-    - input_boolean.tortheaters
 
 fish:
   view: yes
@@ -142,8 +127,6 @@ default_view:
   view: yes
   name: Overview
   entities:
-    - scene.all_tortoise_lights_on
-    - scene.all_tortoise_lights_off
     - scene.all_lights_on
     - scene.all_lights_off
     - media_player.kitchen
