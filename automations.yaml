@@ -158,18 +158,24 @@
   action:
   - service: scene.turn_on
     entity_id: scene.dinner_time
-- alias: gaming_goodnight
-  id: gaming_goodnight
+- id: gaming_goodnight
+  alias: gaming_goodnight
   trigger:
+  - at: 02:00:00
     platform: time
-    at: 00:00:00
   condition:
-  - condition: time
-    weekday:
-    - sat
+    condition: and
+    conditions:
+    - condition: time
+      weekday:
+      - sat
+    - condition: state
+      entity_id: input_boolean.latenight
+      state: 'off'
   action:
-  - service: scene.turn_on
-    entity_id: scene.all_lights_off
+  - data:
+      entity: light.front_room_table_lamp
+    service: light.turn_off
 - alias: Fish Air pump on morning
   id: fish_air_on
   trigger:
@@ -406,7 +412,6 @@
   action:
     service: scene.turn_on
     entity_id: scene.nighttime_to_kitchen
-
 - id: tort_tap_all_toggle
   alias: Tortoise tap all toggle
   trigger:
@@ -415,12 +420,11 @@
     topic: huepoller/tap/Hallway tap/Face
   condition: []
   action:
-    - service: switch.toggle
-      data:
-        entity_id: 
-          - switch.dining_room_sunshine
-          - switch.kitchen_sunshine
-
+  - service: switch.toggle
+    data:
+      entity_id:
+      - switch.dining_room_sunshine
+      - switch.kitchen_sunshine
 - id: tort_tap_dining_toggle
   alias: Tortoise tap dining toggle
   trigger:
@@ -429,10 +433,9 @@
     topic: huepoller/tap/Hallway tap/Two
   condition: []
   action:
-    - service: switch.toggle
-      data:
-        entity_id: switch.dining_room_sunshine
-
+  - service: switch.toggle
+    data:
+      entity_id: switch.dining_room_sunshine
 - id: tort_tap_kitchen_toggle
   alias: Tortoise tap kitchen toggle
   trigger:
@@ -441,10 +444,9 @@
     topic: huepoller/tap/Hallway tap/Four
   condition: []
   action:
-    - service: switch.toggle
-      data:
-        entity_id: switch.kitchen_sunshine
-
+  - service: switch.toggle
+    data:
+      entity_id: switch.kitchen_sunshine
 - id: kitchen_sensor_lights_on
   alias: Kitchen under cupboard lights
   trigger:
