@@ -23,7 +23,8 @@
                         "sun.sun",
                         "sensor.front_door_temperature_measurement",
                         "sensor.fish_temp_bottom",
-                        "sensor.fish_temp_top"
+                        "sensor.fish_temp_top",
+                        "sensor.kitchen_motion_temperature_measurement"
                     ],
                     "cards": [
                         {
