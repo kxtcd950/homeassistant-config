@@ -28,6 +28,49 @@
                     ],
                     "cards": [
                         {
+                            "columns": 2,
+                            "entities": [
+                                {
+                                    "entity": "switch.dining_room_sunshine",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.kitchen_sunshine",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.large_viv_heat",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.small_viv_heat",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.living_room_sunshine",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.hallway_sunshine",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Tortoise sun control",
+                            "type": "glance"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.fish_temp_top",
@@ -40,7 +83,7 @@
                             ],
                             "hours_to_show": 168,
                             "icon": "mdi:fish",
-                            "name": "Fish pond temperatures",
+                            "name": "Fish pond temperatures (weekly)",
                             "points_per_hour": 0.25,
                             "type": "custom:mini-graph-card"
                         },
@@ -58,7 +101,7 @@
                             "hours_to_show": 24,
                             "icon": "mdi:fish",
                             "name": "Fish pond temperature over last 24 hours",
-                            "points_per_hour": 1,
+                            "points_per_hour": 2,
                             "type": "custom:mini-graph-card"
                         },
                         {
@@ -131,23 +174,38 @@
                             "type": "glance"
                         },
                         {
-                            "columns": 3,
                             "entities": [
                                 {
-                                    "entity": "switch.dining_room_sunshine",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
+                                    "entity": "sensor.turnip_viv_temperature_measurement",
+                                    "name": "Turnip viv temp"
                                 },
                                 {
-                                    "entity": "switch.kitchen_sunshine",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
+                                    "entity": "sensor.pumpkin_viv_temperature_measurement",
+                                    "name": "Pumpkin viv temp"
                                 }
                             ],
-                            "title": "Tortoise sun control",
-                            "type": "glance"
+                            "hours_to_show": 168,
+                            "icon": "mdi:turtle",
+                            "name": "Tortoise bed temperatures (weekly)",
+                            "points_per_hour": 0.25,
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.turnip_viv_temperature_measurement",
+                                    "name": "Turnip viv temp"
+                                },
+                                {
+                                    "entity": "sensor.pumpkin_viv_temperature_measurement",
+                                    "name": "Pumpkin viv temp"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "icon": "mdi:turtle",
+                            "name": "Tortoise bed temperatures (24 hours)",
+                            "points_per_hour": 2,
+                            "type": "custom:mini-graph-card"
                         }
                     ],
                     "icon": "mdi:home",

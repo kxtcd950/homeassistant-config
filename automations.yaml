@@ -509,46 +509,48 @@
       message: There's somebody at the door
       title: Doorbell pressed
     service: notify.ios_maries_iphone
-- alias: Doorbell Halloween
-  id: doorbell_halloween
+- id: doorbell_halloween
+  alias: Doorbell Halloween
   trigger:
-    platform: mqtt
-    topic: smartthings/Doorbell/contact
-    payload: closed
+  - entity_id: binary_sensor.doorbell_contact
+    from: 'on'
+    platform: state
+    to: 'off'
   condition:
-    condition: state
+  - condition: state
     entity_id: input_boolean.halloween_bell
     state: 'on'
   action:
-  - service: script.turn_on
-    entity_id: script.audio_alert
-    data:
+  - data:
       variables:
-        play_length: 00:00:08
-        media_location: http://apollo.lucien.me.uk/~dave/doorbell/toccataandfugue.mp3
         content_type: music
+        media_location: http://apollo.lucien.me.uk/~dave/doorbell/toccataandfugue.mp3
+        play_length: 00:00:08
         sonos_entity: media_player.kitchen
         volume: '0.60'
-- alias: Doorbell Christmas
-  id: doorbell_christmas
+    entity_id: script.audio_alert
+    service: script.turn_on
+- id: doorbell_christmas
+  alias: Doorbell Christmas
   trigger:
-    platform: mqtt
-    topic: smartthings/Doorbell/contact
-    payload: closed
+  - entity_id: binary_sensor.doorbell_contact
+    from: 'on'
+    platform: state
+    to: 'off'
   condition:
-    condition: state
+  - condition: state
     entity_id: input_boolean.christmas_bell
     state: 'on'
   action:
-  - service: script.turn_on
-    entity_id: script.audio_alert
-    data:
+  - data:
       variables:
-        play_length: 00:00:04
-        media_location: http://apollo.lucien.me.uk/~dave/doorbell/christmas.mp3
         content_type: music
+        media_location: http://apollo.lucien.me.uk/~dave/doorbell/christmas.mp3
+        play_length: 00:00:04
         sonos_entity: media_player.kitchen
         volume: '0.60'
+    entity_id: script.audio_alert
+    service: script.turn_on
 - alias: Fridge Door Alarm
   id: fridge_door_alarm
   trigger:
@@ -576,6 +578,7 @@
   action:
   - delay: 00:05
   - service: homekit.start
+  id: eefee051dc0a49f1a8773e0e7c200386
 - alias: Swap to halloween bell
   id: halloween_bell_swap_to
   trigger:
@@ -636,3 +639,43 @@
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.christmas_bell
+- id: '1570360116439'
+  alias: Tortoise tap heat toggle
+  trigger:
+  - payload: pressed
+    platform: mqtt
+    topic: huepoller/tap/Hallway tap/Three
+  condition: []
+  action:
+  - data:
+      entity_id: switch.small_viv_heat
+    service: switch.toggle
+  - data:
+      entity_id: switch.large_viv_heat
+    service: switch.toggle
+- id: '1570360445400'
+  alias: Tortoise heat auto-on
+  trigger:
+  - at: '18:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.small_viv_heat
+    service: switch.turn_on
+  - data:
+      entity_id: switch.large_viv_heat
+    service: switch.turn_on
+- id: '1570360519100'
+  alias: Tortoise heat auto-off
+  trigger:
+  - at: 06:30
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.small_viv_heat
+    service: switch.turn_off
+  - data:
+      entity_id: switch.large_viv_heat
+    service: switch.turn_off

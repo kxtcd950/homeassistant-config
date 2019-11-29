@@ -38,6 +38,11 @@ http:
   login_attempts_threshold: 10
   ip_ban_enabled: true
 
+logger:
+  default: info
+  logs:
+    homeassistant.components.smartthings: info
+
 # Checks for available updates
 updater:
 
@@ -126,6 +131,8 @@ ios:
   push_categories:
     - name: Generic
       identifiier: 'Generic'
+
+mobile_app:
 
 input_boolean: !include config/inputbool.yaml
     
