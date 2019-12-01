@@ -30,15 +30,15 @@
   action:
     service: scene.turn_on
     entity_id: scene.more_lights
-- alias: Turn more lights on as the sun gets dimmer Nodining
-  id: more_lights_sun_dimmer_nodining
+- id: more_lights_sun_dimmer_nodining
+  alias: Turn more lights on as the sun gets dimmer Nodining
   trigger:
-    platform: numeric_state
+  - below: '3.5'
     entity_id: sun.sun
+    platform: numeric_state
     value_template: '{{ state.attributes.elevation }}'
-    below: 3.5
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: state
       entity_id: input_boolean.sun_inhibit_action
@@ -47,8 +47,9 @@
       entity_id: input_boolean.dining_override
       state: 'off'
   action:
+  - data:
+      entity_id: scene.more_lights_nodining
     service: scene.turn_on
-    entity_id: scene.more_lights_nodining
 - alias: Dusk all lights on Nodining
   id: dusk_all_lights_on_nodining
   trigger:
