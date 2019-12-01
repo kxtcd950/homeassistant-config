@@ -15,18 +15,45 @@
             "views": [
                 {
                     "badges": [
-                        "device_tracker.daves_iphone",
-                        "binary_sensor.living_room_window_contact",
-                        "binary_sensor.front_door_contact",
-                        "binary_sensor.fridge_door_contact",
-                        "sensor.yr_symbol",
-                        "sun.sun",
-                        "sensor.front_door_temperature_measurement",
-                        "sensor.fish_temp_bottom",
-                        "sensor.fish_temp_top",
-                        "sensor.kitchen_motion_temperature_measurement"
+                        {
+                            "entity": "binary_sensor.living_room_window_contact"
+                        },
+                        {
+                            "entity": "binary_sensor.front_door_contact"
+                        },
+                        {
+                            "entity": "binary_sensor.fridge_door_contact"
+                        },
+                        {
+                            "entity": "sensor.yr_symbol"
+                        },
+                        {
+                            "entity": "sun.sun"
+                        },
+                        {
+                            "entity": "sensor.front_door_temperature_measurement"
+                        },
+                        {
+                            "entity": "sensor.fish_temp_bottom"
+                        },
+                        {
+                            "entity": "sensor.fish_temp_top"
+                        },
+                        {
+                            "entity": "sensor.kitchen_motion_temperature_measurement"
+                        },
+                        {
+                            "entity": "device_tracker.marie_s_iphone"
+                        },
+                        {
+                            "entity": "device_tracker.davej_phone_2"
+                        }
                     ],
                     "cards": [
+                        {
+                            "entity": "weather.weather",
+                            "type": "weather-forecast"
+                        },
                         {
                             "columns": 2,
                             "entities": [
@@ -431,14 +458,14 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.porch_decorations",
+                                    "entity": "switch.porch_switch",
                                     "icon": "mdi:pine-tree",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "switch.front_room_decorations",
+                                    "entity": "switch.living_room_decs",
                                     "icon": "mdi:pine-tree",
                                     "tap_action": {
                                         "action": "toggle"

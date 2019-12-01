@@ -1,14 +1,24 @@
-- name: sun_fading
+- id: '1575218236700'
+  name: Marie Crafting
   entities:
-    light.Front_Room:
+    light.front_room_table_lamp:
+      brightness: 254
+      color_temp: 341
+      effect: none
+      state: 'on'
+
+- id: '8055'
+  name: sun fading
+  entities:
+    light.front_room:
       state: on
       brightness: 100
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 100
       xy_color: [ 0.5125, 0.4149 ]
-    light.Landing:
+    light.landing:
       state: on
       brightness: 100
       xy_color: [ 0.5125, 0.4149 ]
@@ -17,25 +27,26 @@
       brightness: 85
       color_temp: 387
 
-- name: more_lights
+- id: '32184'
+  name: more lights
   entities:
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Landing:
+    light.landing:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-      #    light.Dining_room:
+      #    light.dining_room:
       #      state: on
       #      brightness: 114
       #      color_temp: 387
@@ -44,21 +55,22 @@
       brightness: 95
       color_temp: 387
 
-- name: more_lights_nodining
+- id: '11451'
+  name: more lights nodining
   entities:
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Landing:
+    light.landing:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
@@ -67,29 +79,30 @@
       brightness: 95
       color_temp: 387
 
-- name: All_lights_on_Nodining
+- id: '19645'
+  name: all lights on nodining
   entities:
-    light.Landing:
+    light.landing:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Hallway:
+    light.hallway:
       state: on
       brightness: 114
       color_temp: 387
-    light.Porch:
+    light.porch:
       state: on
       brightness: 54
     light.our_bedroom:
@@ -101,33 +114,34 @@
       brightness: 114
       color_temp: 387
 
-- name: All_lights_on
+- id: '5964'
+  name: all lights on
   entities:
-    light.Landing:
+    light.landing:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Hallway:
+    light.hallway:
       state: on
       brightness: 114
       color_temp: 387
-      #    light.Dining_room:
+      #    light.dining_room:
       #      state: on
       #      brightness: 114
       #      color_temp: 387
-    light.Porch:
+    light.porch:
       state: on
       brightness: 54
     light.our_bedroom:
@@ -139,34 +153,35 @@
       brightness: 114
       color_temp: 387
 
-- name: good_morning
+- id: '20743'
+  name: good morning
   entities:
-    light.Landing:
+    light.landing:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
       transition: 60
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Hallway:
+    light.hallway:
       state: on
       brightness: 114
       color_temp: 387
-      #    light.Dining_room:
+      #    light.dining_room:
       #      state: on
       #      brightness: 114
       #      color_temp: 387
-    light.Porch:
+    light.porch:
       state: on
       brightness: 114
       color_temp: 387
@@ -180,34 +195,35 @@
       brightness: 114
       color_temp: 387
 
-- name: wakey_wakey
+- id: '1595'
+  name: wakey wakey
   entities:
-    light.Landing:
+    light.landing:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
       transition: 60
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
-    light.Hallway:
+    light.hallway:
       state: on
       brightness: 127
       color_temp: 387
-      #    light.Dining_room:
+      #    light.dining_room:
       #      state: on
       #      brightness: 114
       #      color_temp: 387
-    light.Porch:
+    light.porch:
       state: on
       brightness: 54
     light.our_bedroom:
@@ -220,30 +236,31 @@
       brightness: 114
       color_temp: 387
 
-- name: good_morning_nodining
+- id: '8783'
+  name: good morning nodining
   entities:
-    light.Landing:
+    light.landing:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
       transition: 60
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Hallway:
+    light.hallway:
       state: on
       brightness: 114
       color_temp: 387
-    light.Porch:
+    light.porch:
       state: on
       brightness: 114
       color_temp: 387
@@ -257,30 +274,31 @@
       brightness: 114
       color_temp: 387
 
-- name: wakey_wakey_nodining
+- id: '9380'
+  name: wakey wakey nodining
   entities:
-    light.Landing:
+    light.landing:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
       transition: 60
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_Room:
+    light.front_room:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 160
       xy_color: [ 0.5125, 0.4149 ]
-    light.Hallway:
+    light.hallway:
       state: on
       brightness: 127
       color_temp: 387
-    light.Porch:
+    light.porch:
       state: on
       brightness: 54
     light.our_bedroom:
@@ -293,21 +311,22 @@
       brightness: 114
       color_temp: 387
 
-- name: All_lights_Off_manual
+- id: '1795'
+  name: all lights off manual
   entities:
-    light.Landing:
+    light.landing:
       state: off
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: off
-    light.Front_Room:
+    light.front_room:
       state: off
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: off
-    light.Hallway:
+    light.hallway:
       state: off
-    light.Dining_room:
+    light.dining_room:
       state: off
-    light.Porch:
+    light.porch:
       state: off
     light.our_bedroom:
       state: off
@@ -321,28 +340,29 @@
       state: off
     switch.tortoise_uv_lamps:
       state: off
-    switch.Front_room_tortoise_lamp:
+    switch.front_room_tortoise_lamp:
       state: off
-    switch.Front_room_decorations:
+    switch.front_room_decorations:
       state: off
-    switch.Porch_decorations:
+    switch.porch_decorations:
       state: off
 
-- name: All_lights_Off
+- id: '7147'
+  name: all lights off
   entities:
-    light.Landing:
+    light.landing:
       state: off
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: off
-    light.Front_Room:
+    light.front_room:
       state: off
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: off
-    light.Hallway:
+    light.hallway:
       state: off
-    light.Dining_room:
+    light.dining_room:
       state: off
-    light.Porch:
+    light.porch:
       state: off
     light.our_bedroom:
       state: off
@@ -350,36 +370,38 @@
       state: off
     light.kitchen_under_cupboard:
       state: off
-    switch.Front_room_decorations:
+    switch.front_room_decorations:
       state: off
-    switch.Porch_decorations:
+    switch.porch_decorations:
       state: off
 
-- name: dinner_time
+- id: '24319'
+  name: dinner time
   entities:
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 191
       color_temp: 387
       transition: 20
 
-- name: gaming_time
+- id: '13929'
+  name: gaming time
   entities:
-    light.Landing:
+    light.landing:
       state: off
-    light.Bottom_of_stairs:
+    light.bottom_of_stairs:
       state: off
-    light.Front_Room:
+    light.front_room:
       state: off
-    light.Front_room_table_lamp:
+    light.front_room_table_lamp:
       state: on
       brightness: 140
       xy_color: [ 0.5125, 0.4149 ]
-    light.Hallway:
+    light.hallway:
       state: off
-    light.Dining_room:
+    light.dining_room:
       state: off
-    light.Porch:
+    light.porch:
       state: off
     light.our_bedroom:
       state: off
@@ -388,24 +410,28 @@
     light.kitchen_under_cupboard:
       state: off
 
-- name: guest_room_off
+- id: '14456'
+  name: guest room off
   entities:
     light.maries_room:
       state: off
 
-- name: guest_room_on
+- id: '32160'
+  name: guest room on
   entities:
     light.maries_room:
       state: on
 
-- name: Bedtime
+- id: '26539'
+  name: Bedtime
   entities:
     light.our_bedroom:
       state: on
       brightness: 60
       color_temp: 387
 
-- name: All_Tortoise_on
+- id: '15392'
+  name: All Tortoise on
   entities:
     switch.black_cage_heat_lamp:
       state: on
@@ -416,7 +442,8 @@
     switch.tortoise_ceramic_heaters:
       state: on
 
-- name: All_Tortoise_off
+- id: '11975'
+  name: All Tortoise off
   entities:
     switch.black_cage_heat_lamp:
       state: off
@@ -426,10 +453,11 @@
       state: off
     switch.tortoise_ceramic_heaters:
       state: off
-    switch.Front_room_tortoise_lamp:
+    switch.front_room_tortoise_lamp:
       state: off
 
-- name: All_Tortoise_lights_on
+- id: '6106'
+  name: All Tortoise lights on
   entities:
     switch.black_cage_heat_lamp:
       state: on
@@ -438,7 +466,8 @@
     switch.tortoise_uv_lamps:
       state: on
 
-- name: All_Tortoise_Lights_off
+- id: '12643'
+  name: All Tortoise Lights off
   entities:
     switch.black_cage_heat_lamp:
       state: off
@@ -446,34 +475,39 @@
       state: off
     switch.tortoise_uv_lamps:
       state: off
-    switch.Front_room_tortoise_lamp:
+    switch.front_room_tortoise_lamp:
       state: off
 
-- name: Tortoise_ceramic_heat_on
+- id: '19540'
+  name: Tortoise ceramic heat on
   entities:
     switch.tortoise_ceramic_heaters:
       state: on
 
-- name: Tortoise_ceramic_heat_off
+- id: '11382'
+  name: Tortoise ceramic heat off
   entities:
     switch.tortoise_ceramic_heaters:
       state: off
 
-- name: Nighttime_landing_light
+- id: '17330'
+  name: Nighttime landing light
   entities:
     light.landing:
       state: on
       brightness: 70
       xy_color: [ 0.5125, 0.4149 ]
 
-- name: Nighttime_landing_light_off
+- id: '18796'
+  name: Nighttime landing light off
   entities:
     light.landing:
       state: off
 
-- name: Nighttime_to_kitchen
+- id: '5507'
+  name: Nighttime to kitchen
   entities:
-    light.Landing:
+    light.landing:
       state: on
       brightness: 70
       xy_color: [ 0.5125, 0.4149 ]
@@ -486,7 +520,8 @@
       brightness: 60
       color_temp: 387
 
-- name: fridge_door_left_open
+- id: '4990'
+  name: fridge door left open
   entities:
     light.bottom_of_stairs:
       state: on
@@ -497,7 +532,8 @@
       brightness: 100
       color_name: "red"
 
-- name: fridge_door_recovery
+- id: '19200'
+  name: fridge door recovery
   entities:
     light.bottom_of_stairs:
       state: off

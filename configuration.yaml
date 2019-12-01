@@ -40,8 +40,8 @@ http:
 
 logger:
   default: info
-  logs:
-    homeassistant.components.smartthings: info
+  #  logs:
+    #    homeassistant.components.smartthings: info
 
 # Checks for available updates
 updater:
@@ -66,6 +66,21 @@ config:
 # Track the sun
 sun:
 
+#weather from dark sky
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey
+    name: Weather
+
+mobile_app:
+
+notify:
+  - name: ALL_DEVICES
+    platform: group
+    services:
+      - service: mobile_app_davej_phone
+      - service: mobile_app_marie_s_iphone
+
 mqtt:
   broker: 127.0.0.1
   port: 1883
@@ -77,13 +92,11 @@ sensor: !include config/sensors.yaml
 
 zone: !include config/zones.yaml
 
-#device_tracker: !include config/device_tracker.yaml
-
 switch: !include config/switches.yaml
 
 group: !include config/group/lights.yaml
 
-scene: !include config/scenes.yaml
+scene: !include scenes.yaml
 
 automation: !include automations.yaml
 
@@ -125,14 +138,6 @@ homekit:
       include_domains:
          - light
          - media_player
-
-ios:
-  health_check: true
-  push_categories:
-    - name: Generic
-      identifiier: 'Generic'
-
-mobile_app:
 
 input_boolean: !include config/inputbool.yaml
     

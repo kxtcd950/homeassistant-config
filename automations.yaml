@@ -68,10 +68,6 @@
   action:
   - service: scene.turn_on
     entity_id: scene.all_lights_on_nodining
-  - service: switch.turn_on
-    entity_id: switch.porch_decorations
-  - service: switch.turn_on
-    entity_id: switch.front_room_decorations
 - alias: Dusk all lights on
   id: dusk_all_lights_on
   trigger:
@@ -91,10 +87,6 @@
   action:
   - service: scene.turn_on
     entity_id: scene.all_lights_on
-  - service: switch.turn_on
-    entity_id: switch.porch_decorations
-  - service: switch.turn_on
-    entity_id: switch.front_room_decorations
 - alias: Goodnight normal
   id: goodnight
   trigger:
@@ -504,11 +496,7 @@
   - data:
       message: There's somebody at the door
       title: Doorbell pressed
-    service: notify.ios_daves_iphone
-  - data:
-      message: There's somebody at the door
-      title: Doorbell pressed
-    service: notify.ios_maries_iphone
+    service: notify.ALL_DEVICES
 - id: doorbell_halloween
   alias: Doorbell Halloween
   trigger:
@@ -678,4 +666,40 @@
     service: switch.turn_off
   - data:
       entity_id: switch.large_viv_heat
+    service: switch.turn_off
+- id: '1575215443800'
+  alias: Christmas Decorations on
+  description: Switch Christmas decorations on as sun is going down.
+  trigger:
+  - below: '5'
+    entity_id: sun.sun
+    platform: numeric_state
+    value_template: '{{ state.attributes.elevation }}'
+  condition:
+  - condition: state
+    entity_id: input_boolean.christmas_decs
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.porch_switch
+    service: switch.turn_on
+  - data:
+      entity_id: switch.living_room_decs
+    service: switch.turn_on
+- id: '1575216097000'
+  alias: Christmas Decorations off
+  description: Switch off Christmas decorations when it's getting late
+  trigger:
+  - at: '22:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.christmas_decs
+    state: 'on'
+  action:
+  - data:
+      entity_data: porch_switch
+    service: switch.turn_off
+  - data:
+      entity_data: living_room_decs
     service: switch.turn_off

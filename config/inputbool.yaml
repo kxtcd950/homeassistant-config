@@ -37,3 +37,6 @@
   latenight:
     name: latenight
     initial: off
+  christmas_decs:
+    name: Christmas Decorations
+    initial: off
