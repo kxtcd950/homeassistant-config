@@ -1,8 +1,10 @@
 zone.home:
   track_ios: true
-zone.datapath: 
+zone.datapath:
   track_ios: true
 zone.mums:
   track_ios: true
 device_tracker.marie_marie:
+  entity_picture: /local/marie.png
+device_tracker.marie_s_iphone:
   entity_picture: /local/marie.png

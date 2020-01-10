@@ -647,7 +647,10 @@
   trigger:
   - at: '18:00'
     platform: time
-  condition: []
+  condition:
+  - condition: state
+    entity_id: input_boolean.tortheaters
+    state: 'on'
   action:
   - data:
       entity_id: switch.small_viv_heat

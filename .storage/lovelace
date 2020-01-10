@@ -460,6 +460,7 @@
                                 {
                                     "entity": "switch.porch_switch",
                                     "icon": "mdi:pine-tree",
+                                    "name": "Outside lights",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
