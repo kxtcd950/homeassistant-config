@@ -642,6 +642,9 @@
   - data:
       entity_id: switch.large_viv_heat
     service: switch.toggle
+  - data:
+      entity_id: light.tortoise_room
+    service: light.turn_off
 - id: '1570360445400'
   alias: Tortoise heat auto-on
   trigger:

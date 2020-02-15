@@ -30,38 +30,44 @@ overrides:
     - input_boolean.latenight
     - input_boolean.holiday
 
+all_lights:
+  name: All Lights
+  entities:
+    - group.downlights
+    - group.upslights
+
 #
 #  From here down, these are the groups for the frontend.
 #
 
 overrides_g:
-  view: yes
+#  view: yes
   name: Overrides
   entities:
     - group.overrides
 
 downstairscollected:
-  view: yes
+#  view: yes
   name: Downstairs Devices
   entities:
     - group.downlights
     - group.downcontrol
 
 upstairscollected:
-  view: yes
+#  view: yes
   name: Upstairs Devices
   entities:
     - group.upslights
 
 
 fish:
-  view: yes
+#  view: yes
   name: Fish Control
   entities:
     - switch.fish_air_pump
 
 xmasdecs:
-   view: yes
+#   view: yes
    name: Christmas Decorations
    entities:
      - switch.Porch_decorations
@@ -69,7 +75,7 @@ xmasdecs:
 
 
 otherstuff:
-  view: yes
+#  view: yes
   name: Automations
   entities:
     - automation.good_morning
@@ -112,7 +118,7 @@ otherstuff:
     - input_boolean.fridge_alarm
 
 testing:
-  view: yes
+#  view: yes
   name: Testing
   entities:
     - input_text.frtl_abri
@@ -124,7 +130,7 @@ testing:
     - input_boolean.frtl_uo
     
 default_view:
-  view: yes
+#  view: yes
   name: Overview
   entities:
     - scene.all_lights_on
