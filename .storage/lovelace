@@ -43,7 +43,7 @@
                             "entity": "sensor.kitchen_motion_temperature_measurement"
                         },
                         {
-                            "entity": "device_tracker.marie_s_iphone"
+                            "entity": "device_tracker.marie_marie"
                         },
                         {
                             "entity": "device_tracker.davej_phone_2"
@@ -459,15 +459,8 @@
                             "entities": [
                                 {
                                     "entity": "switch.porch_switch",
-                                    "icon": "mdi:pine-tree",
+                                    "icon": "mdi:string-lights",
                                     "name": "Outside lights",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.living_room_decs",
-                                    "icon": "mdi:pine-tree",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
@@ -475,11 +468,35 @@
                             ],
                             "title": "Christmas decorations",
                             "type": "glance"
+                        },
+                        {
+                            "columns": 2,
+                            "entities": [
+                                {
+                                    "entity": "switch.front_door_decs",
+                                    "icon": "mdi:string-lights",
+                                    "name": "Front Porch",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.living_room_decs",
+                                    "icon": "mdi:pine-tree",
+                                    "name": "Bottom of stairs tree",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "show_state": true,
+                            "title": "Non-Christmas decorations",
+                            "type": "glance"
                         }
                     ],
                     "panel": false,
-                    "path": "xmasdecs",
-                    "title": "Xmas decs"
+                    "path": "decs",
+                    "title": "Decorations"
                 },
                 {
                     "badges": [

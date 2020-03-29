@@ -5,3 +5,11 @@
   payload_on: "ON"
   payload_off: "OFF"
   retain: false
+
+- platform: mqtt
+  name: "Front door decs"
+  state_topic: "porchdecs/stat/POWER"
+  command_topic: "porchdecs/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
