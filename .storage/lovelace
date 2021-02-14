@@ -1,19 +1,14 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
-            "resources": [
-                {
-                    "type": "module",
-                    "url": "/local/mini-graph-card-bundle.js?v=0.4.3"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/monster-card.js"
-                }
-            ],
             "title": "Home",
             "views": [
                 {
+                    "icon": "mdi:home",
+                    "path": "default_view",
+                    "title": "Home",
                     "badges": [
                         {
                             "entity": "binary_sensor.living_room_window_contact"
@@ -23,9 +18,6 @@
                         },
                         {
                             "entity": "binary_sensor.fridge_door_contact"
-                        },
-                        {
-                            "entity": "sensor.yr_symbol"
                         },
                         {
                             "entity": "sun.sun"
@@ -51,106 +43,43 @@
                     ],
                     "cards": [
                         {
-                            "entity": "weather.weather",
-                            "type": "weather-forecast"
+                            "type": "weather-forecast",
+                            "entity": "weather.openweathermap",
+                            "name": "Wollaston"
                         },
                         {
                             "columns": 2,
                             "entities": [
                                 {
                                     "entity": "switch.dining_room_sunshine",
+                                    "name": "Pumpkin viv sunshine",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
                                     "entity": "switch.kitchen_sunshine",
+                                    "name": "Turnip viv sunshine",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
                                     "entity": "switch.large_viv_heat",
+                                    "name": "Turnip viv heat",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
                                     "entity": "switch.small_viv_heat",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.living_room_sunshine",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.hallway_sunshine",
+                                    "name": "Pumpkin viv heat",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 }
                             ],
                             "title": "Tortoise sun control",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.fish_temp_top",
-                                    "name": "Top of pond"
-                                },
-                                {
-                                    "entity": "sensor.fish_temp_bottom",
-                                    "name": "Bottom of pond"
-                                }
-                            ],
-                            "hours_to_show": 168,
-                            "icon": "mdi:fish",
-                            "name": "Fish pond temperatures (weekly)",
-                            "points_per_hour": 0.25,
-                            "type": "custom:mini-graph-card"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.fish_temp_top",
-                                    "name": "Top of pond"
-                                },
-                                {
-                                    "entity": "sensor.fish_temp_bottom",
-                                    "name": "Bottom of pond"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "icon": "mdi:fish",
-                            "name": "Fish pond temperature over last 24 hours",
-                            "points_per_hour": 2,
-                            "type": "custom:mini-graph-card"
-                        },
-                        {
-                            "columns": 3,
-                            "entities": [
-                                {
-                                    "entity": "switch.pond_aeration",
-                                    "icon": "mdi:fish",
-                                    "name": "Fish air pump",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "sensor.fish_temp_top"
-                                },
-                                {
-                                    "entity": "sensor.fish_temp_bottom"
-                                }
-                            ],
-                            "show_state": true,
-                            "title": "Fish Pond",
                             "type": "glance"
                         },
                         {
@@ -204,11 +133,11 @@
                             "entities": [
                                 {
                                     "entity": "sensor.turnip_viv_temperature_measurement",
-                                    "name": "Turnip viv temp"
+                                    "name": "Kitchen viv temp"
                                 },
                                 {
                                     "entity": "sensor.pumpkin_viv_temperature_measurement",
-                                    "name": "Pumpkin viv temp"
+                                    "name": "Dining room viv temp"
                                 }
                             ],
                             "hours_to_show": 168,
@@ -221,11 +150,11 @@
                             "entities": [
                                 {
                                     "entity": "sensor.turnip_viv_temperature_measurement",
-                                    "name": "Turnip viv temp"
+                                    "name": "Kitchen viv temp"
                                 },
                                 {
                                     "entity": "sensor.pumpkin_viv_temperature_measurement",
-                                    "name": "Pumpkin viv temp"
+                                    "name": "Dining Room viv temp"
                                 }
                             ],
                             "hours_to_show": 24,
@@ -234,10 +163,7 @@
                             "points_per_hour": 2,
                             "type": "custom:mini-graph-card"
                         }
-                    ],
-                    "icon": "mdi:home",
-                    "path": "default_view",
-                    "title": "Home"
+                    ]
                 },
                 {
                     "badges": [],
@@ -382,8 +308,8 @@
                         },
                         {
                             "entity": "light.hallway",
-                            "name": "Hallway",
-                            "type": "light"
+                            "type": "light",
+                            "name": "Front Door"
                         },
                         {
                             "entity": "light.bottom_of_stairs",
@@ -407,91 +333,75 @@
                     "title": "lights"
                 },
                 {
+                    "icon": "mdi:cog",
+                    "path": "setings",
+                    "title": "Setings",
                     "badges": [],
                     "cards": [
                         {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Config toggles",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "input_boolean.test_*"
-                                    },
-                                    {
-                                        "entity_id": "input_boolean.kitmocorr"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "entity_id": "input_boolean.*"
-                                    }
-                                ]
-                            },
-                            "type": "custom:monster-card"
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.tortheaters"
+                                },
+                                {
+                                    "entity": "input_boolean.torts_sun_based"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Tortoise heat control",
+                            "type": "entities"
                         },
                         {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Testing config toggles",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "input_boolean.test_*"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.christmas_decs"
+                                }
+                            ],
+                            "title": "xmas decs"
                         }
-                    ],
-                    "icon": "mdi:settings",
-                    "title": "Configuration"
+                    ]
                 },
                 {
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                {
-                                    "entity": "switch.porch_switch",
-                                    "icon": "mdi:string-lights",
-                                    "name": "Outside lights",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                }
-                            ],
-                            "title": "Christmas decorations",
-                            "type": "glance"
-                        },
-                        {
+                            "type": "glance",
                             "columns": 2,
                             "entities": [
                                 {
                                     "entity": "switch.front_door_decs",
-                                    "icon": "mdi:string-lights",
-                                    "name": "Front Porch",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "switch.living_room_decs",
-                                    "icon": "mdi:pine-tree",
-                                    "name": "Bottom of stairs tree",
+                                    "entity": "switch.salt_lamp",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 }
                             ],
-                            "show_state": true,
-                            "title": "Non-Christmas decorations",
-                            "type": "glance"
+                            "title": "Non-Christmas decorations"
+                        },
+                        {
+                            "type": "glance",
+                            "columns": 2,
+                            "entities": [
+                                {
+                                    "entity": "switch.hallway_sunshine",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.porch_switch",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "title": "Christmas decs"
                         }
                     ],
                     "panel": false,
@@ -541,10 +451,100 @@
                     ],
                     "path": "otherstuff",
                     "title": "Automations"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.kitchen",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.bedroom",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room",
+                            "type": "media-control"
+                        }
+                    ],
+                    "icon": "",
+                    "path": "entertainment",
+                    "title": "Entertainment",
+                    "visible": [
+                        {
+                            "user": "1a30b0bf05c24762b5edda3332f94e4c"
+                        },
+                        {
+                            "user": "1588b02315ca4e7d87e9330388a33918"
+                        }
+                    ]
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.fish_temp_top",
+                                    "name": "Top of pond"
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_bottom",
+                                    "name": "Bottom of pond"
+                                }
+                            ],
+                            "hours_to_show": 168,
+                            "icon": "mdi:fish",
+                            "name": "Fish pond temperatures (weekly)",
+                            "points_per_hour": 0.25,
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.fish_temp_top",
+                                    "name": "Top of pond"
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_bottom",
+                                    "name": "Bottom of pond"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "icon": "mdi:fish",
+                            "name": "Fish pond temperature over last 24 hours",
+                            "points_per_hour": 2,
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "switch.pond_aeration",
+                                    "icon": "mdi:fish",
+                                    "name": "Fish air pump",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_top"
+                                },
+                                {
+                                    "entity": "sensor.fish_temp_bottom"
+                                }
+                            ],
+                            "show_state": true,
+                            "title": "Fish Pond",
+                            "type": "glance"
+                        }
+                    ],
+                    "icon": "",
+                    "path": "old-stuff",
+                    "title": "old stuff"
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

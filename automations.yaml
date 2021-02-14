@@ -96,38 +96,28 @@
     entity_id: switch.front_door_decs
   - service: switch.turn_on
     entity_id: switch.living_room_decs
-- alias: Goodnight normal
-  id: goodnight
+- id: goodnight
+  alias: Goodnight normal
   trigger:
+  - at: '22:20:00'
     platform: time
-    at: '22:20:00'
   condition:
-    condition: and
-    conditions:
-    - condition: time
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-      - sun
-    - condition: state
-      entity_id: input_boolean.latenight
-      state: 'off'
+  - condition: state
+    entity_id: input_boolean.latenight
+    state: 'off'
   action:
-  - service: scene.turn_on
-    entity_id: scene.all_lights_off
-  - service: input_boolean.turn_off
-    data:
+  - entity_id: scene.all_lights_off
+    service: scene.turn_on
+  - data:
       entity_id: input_boolean.sun_going_down
-  - service: input_boolean.turn_off
-    data:
+    service: input_boolean.turn_off
+  - data:
       entity_id: input_boolean.sun_inhibit_action
-  - service: switch.turn_off
-    entity_id: switch.front_door_decs
-  - service: switch.turn_off
-    entity_id: switch.living_room_decs
+    service: input_boolean.turn_off
+  - entity_id: switch.front_door_decs
+    service: switch.turn_off
+  - entity_id: switch.living_room_decs
+    service: switch.turn_off
 - alias: game time
   id: game_time
   trigger:
@@ -313,13 +303,13 @@
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.alarm_sequence_running
-- alias: WakeyWakeyRiseAndShine
-  id: wake_up_early
+- id: wake_up_early
+  alias: WakeyWakeyRiseAndShine
   trigger:
-    platform: time
+  - platform: time
     at: 05:50:00
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: sun
       before: sunrise
@@ -331,8 +321,9 @@
       entity_id: input_boolean.holiday
       state: 'off'
   action:
-    service: scene.turn_on
+  - service: scene.turn_on
     entity_id: scene.wakey_wakey
+  mode: single
 - alias: Reset bedroom light to sensible levels
   id: bed_light_sensible
   trigger:
@@ -417,41 +408,6 @@
   action:
     service: scene.turn_on
     entity_id: scene.nighttime_to_kitchen
-- id: tort_tap_all_toggle
-  alias: Tortoise tap all toggle
-  trigger:
-  - payload: pressed
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Face
-  condition: []
-  action:
-  - service: switch.toggle
-    data:
-      entity_id:
-      - switch.dining_room_sunshine
-      - switch.kitchen_sunshine
-- id: tort_tap_dining_toggle
-  alias: Tortoise tap dining toggle
-  trigger:
-  - payload: pressed
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Two
-  condition: []
-  action:
-  - service: switch.toggle
-    data:
-      entity_id: switch.dining_room_sunshine
-- id: tort_tap_kitchen_toggle
-  alias: Tortoise tap kitchen toggle
-  trigger:
-  - payload: pressed
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Four
-  condition: []
-  action:
-  - service: switch.toggle
-    data:
-      entity_id: switch.kitchen_sunshine
 - id: kitchen_sensor_lights_on
   alias: Kitchen under cupboard lights
   trigger:
@@ -640,23 +596,6 @@
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.christmas_bell
-- id: '1570360116439'
-  alias: Tortoise tap heat toggle
-  trigger:
-  - payload: pressed
-    platform: mqtt
-    topic: huepoller/tap/Hallway tap/Three
-  condition: []
-  action:
-  - data:
-      entity_id: switch.small_viv_heat
-    service: switch.toggle
-  - data:
-      entity_id: switch.large_viv_heat
-    service: switch.toggle
-  - data:
-      entity_id: light.tortoise_room
-    service: light.turn_off
 - id: '1570360445400'
   alias: Tortoise heat auto-on
   trigger:
@@ -699,12 +638,16 @@
     entity_id: input_boolean.christmas_decs
     state: 'on'
   action:
-  - data:
-      entity_id: switch.porch_switch
-    service: switch.turn_on
-  - data:
-      entity_id: switch.living_room_decs
-    service: switch.turn_on
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.porch_switch
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.hallway_sunshine
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.living_room_decs
+  mode: single
 - id: '1575216097000'
   alias: Christmas Decorations off
   description: Switch off Christmas decorations when it's getting late
@@ -716,9 +659,289 @@
     entity_id: input_boolean.christmas_decs
     state: 'on'
   action:
-  - data:
-      entity_data: porch_switch
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.porch_switch
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.hallway_sunshine
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.living_room_decs
+  mode: single
+- id: '1593798894804'
+  alias: decorations off
+  description: ''
+  trigger:
+  - at: '22:25'
+    platform: time
+  condition: []
+  action:
+  - data: {}
+    entity_id: switch.living_room_decs
     service: switch.turn_off
-  - data:
-      entity_data: living_room_decs
+  - data: {}
+    entity_id: switch.front_door_decs
     service: switch.turn_off
+- id: '1598798685359'
+  alias: Restart Hass
+  description: Workaround bug with file handle leaks.
+  trigger:
+  - at: 04:00
+    platform: time
+  condition:
+  - condition: time
+    weekday:
+    - mon
+  action:
+  - data: {}
+    service: homeassistant.restart
+- id: '1599389366600'
+  alias: Tortoise Sunshine auto-on
+  description: Requires "tortoise lights with sun" to be set.
+  trigger:
+  - event: sunrise
+    offset: 01:00:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: input_boolean.torts_sun_based
+    state: 'on'
+  action:
+  - device_id: d4cae0dae5e4428086112c065d0b71c3
+    domain: switch
+    entity_id: switch.kitchen_sunshine
+    type: turn_on
+  mode: single
+- id: '1599389616700'
+  alias: Tortoise Sunshine auto-off
+  description: Requires "Tortoise lights with sun" to be set.
+  trigger:
+  - event: sunset
+    offset: -01:00:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: input_boolean.torts_sun_based
+    state: 'on'
+  action:
+  - device_id: d4cae0dae5e4428086112c065d0b71c3
+    domain: switch
+    entity_id: switch.kitchen_sunshine
+    type: turn_off
+  mode: single
+- id: '1600615287069'
+  alias: Vivarium automatic Turnip sunrise
+  description: Automatic heat/light for Turnips vivarium
+  trigger:
+  - event: sunrise
+    offset: +01:00
+    platform: sun
+  - platform: time
+    at: 06:00
+  condition:
+  - condition: or
+    conditions:
+    - condition: and
+      conditions:
+      - condition: sun
+        after: sunrise
+        after_offset: +01:00
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'on'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'off'
+      - condition: time
+        after: 05:59
+  action:
+  - device_id: 1ba1cec1051b49fd94829fb7ce46c680
+    domain: switch
+    entity_id: switch.large_viv_heat
+    type: turn_off
+  - device_id: 57d2e8e0e1cd4a9087889bd4d428d91a
+    domain: switch
+    entity_id: switch.dining_room_sunshine
+    type: turn_on
+  mode: single
+- id: '1600615534345'
+  alias: Vivarium automatic Turnip sunset
+  description: ''
+  trigger:
+  - event: sunset
+    offset: -01:00
+    platform: sun
+  - platform: time
+    at: '18:00'
+  condition:
+  - condition: or
+    conditions:
+    - condition: and
+      conditions:
+      - condition: sun
+        after: sunset
+        after_offset: +01:00
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'on'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'off'
+      - condition: time
+        after: '17:59'
+  action:
+  - device_id: 1ba1cec1051b49fd94829fb7ce46c680
+    domain: switch
+    entity_id: switch.large_viv_heat
+    type: turn_on
+  - device_id: 57d2e8e0e1cd4a9087889bd4d428d91a
+    domain: switch
+    entity_id: switch.dining_room_sunshine
+    type: turn_off
+  mode: single
+- id: '1601573795207'
+  alias: Vivarium automatic Pumpkin sunrise
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: +01:00:00
+  - platform: time
+    at: 06:00
+  condition:
+  - condition: or
+    conditions:
+    - condition: and
+      conditions:
+      - condition: sun
+        after: sunrise
+        after_offset: +01:00
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'on'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'off'
+      - condition: time
+        after: 05:59
+  action:
+  - type: turn_off
+    device_id: 827d0e7c384e4c4e8d47cf1d5084e999
+    entity_id: switch.small_viv_heat
+    domain: switch
+  - type: turn_on
+    device_id: d4cae0dae5e4428086112c065d0b71c3
+    entity_id: switch.kitchen_sunshine
+    domain: switch
+  mode: single
+- id: '1601574190915'
+  alias: Vivarium automatic Pumpkin sunset
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -01:00:00
+  - platform: time
+    at: '18:00'
+  condition:
+  - condition: or
+    conditions:
+    - condition: and
+      conditions:
+      - condition: sun
+        after: sunset
+        after_offset: +01:00
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'on'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.torts_sun_based
+        state: 'off'
+      - condition: time
+        after: '17:59'
+  action:
+  - type: turn_off
+    device_id: d4cae0dae5e4428086112c065d0b71c3
+    entity_id: switch.kitchen_sunshine
+    domain: switch
+  - type: turn_on
+    device_id: 827d0e7c384e4c4e8d47cf1d5084e999
+    entity_id: switch.small_viv_heat
+    domain: switch
+  mode: single
+- id: '1609838616654'
+  alias: water fountains on
+  description: Turns on water fountains
+  trigger:
+  - platform: time
+    at: 08:00
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.upstairs_water_fountain
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.downstairs_water_fountain
+  mode: single
+- id: '1609839028845'
+  alias: water fountains off
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.upstairs_water_fountain
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.downstairs_water_fountain
+  mode: single
+- id: '1610393458298'
+  alias: wakeywakeyholidays
+  description: Turns on lights at 6:50 amwhen holidays is on
+  trigger:
+  - platform: time
+    at: 06:50
+  condition:
+  - condition: state
+    entity_id: input_boolean.holiday
+    state: 'on'
+  action:
+  - scene: scene.all_lights_on_nodining
+  mode: single
+- id: '1613309326174'
+  alias: Salt lamp on
+  description: ''
+  trigger:
+  - platform: time
+    at: '14:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.salt_lamp
+  mode: single
+- id: '1613309487748'
+  alias: salt lamp off
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.salt_lamp
+  mode: single

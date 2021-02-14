@@ -1,42 +1,28 @@
   sun_going_down:
     name: Sun is going down
-    initial: off
   sun_inhibit_action:
     name: Inhibit sundown actions
-    initial: off
   tortheaters:
     name: Tort Ceramics Control
-    initial: off
   alarm_sequence_running:
     name: Morning Alarm running
-    initial: off
   kitmocorr:
     name: Kitchen Motion Correction
-    initial: off
   torts_sun_based:
     name: Tortoise lights with sun
-    initial: off
   dining_override:
     name: Dining Room switches on
-    initial: on
   normal_bell:
     name: Normal bell
-    initial: on
   halloween_bell:
     name: Halloween Bell
-    initial: off
   christmas_bell:
     name: Christmas Bell
-    initial: off
   fridge_alarm:
     name: Fridge Alarm
-    initial: on
   holiday:
     name: holiday
-    initial: off
   latenight:
     name: latenight
-    initial: off
   christmas_decs:
     name: Christmas Decorations
-    initial: off

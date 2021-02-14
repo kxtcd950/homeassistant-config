@@ -148,7 +148,6 @@ default_view:
     - device_tracker.daves_iphone
     - device_tracker.maries_iphone
     - sun.sun
-    - sensor.yr_symbol
     - camera.torttemps
     - camera.tortsnapshot
     - media_player.bedroom

@@ -17,3 +17,4 @@ entity_registry.yaml
 .storage/
 .homekit.state
 nohup.out
+.ps4-games*.json

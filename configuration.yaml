@@ -12,7 +12,7 @@ homeassistant:
       api_password: !secret http_password
 
 recorder:
-  purge_interval: 1
+  auto_purge: true
   purge_keep_days: 14
   db_url: !secret mysql_password
   exclude:
@@ -48,8 +48,6 @@ updater:
 
 # Discover some devices automatically (necessary for Philips Hue)
 discovery:
-  ignore:
-    - plex_mediaserver
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -88,6 +86,8 @@ mqtt:
   username: homeassistant
   password: !secret mqtt_ha_password
 
+input_boolean: !include config/inputbool.yaml
+
 sensor: !include config/sensors.yaml
 
 zone: !include config/zones.yaml
@@ -106,31 +106,19 @@ script: !include config/scripts.yaml
 
 input_text: !include config/inputtext.yaml
 
-#camera:
-#  - platform: local_file
-#    file_path: /home/dave/.tort-temps/tort-cage-temp-history.png
-#    name: torttemps
-#    #  - platform: generic
-#    #still_image_url: http://90.155.51.236/Streaming/channels/1/picture 
-#    #username: admin
-#    #password: !secret camera_password
-#    #name: tortsnapshot
-
 sonos:
-#  media_player:
-#    interface_addr: 192.168.30.187
   media_player:
     hosts:
       - 192.168.30.190
       - 192.168.30.156
       - 192.168.30.131
 
-media_player:
-  - platform: samsungtv
-    host: 90.155.51.229
-    port: 8001
-    name: living room tv
-    mac: CC:B1:1A:C3:37:72
+#media_player:
+#  - platform: samsungtv
+#    host: 90.155.51.229
+#    port: 8001
+#    name: living room tv
+#    mac: CC:B1:1A:C3:37:72
 
 homekit:
    auto_start: false
@@ -138,6 +126,5 @@ homekit:
       include_domains:
          - light
          - media_player
-
-input_boolean: !include config/inputbool.yaml
     
+ssdp:

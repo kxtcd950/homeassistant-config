@@ -1,3 +1,8 @@
+#
+# THESE SWITCHES BEING CHANGED REQUIRES A RESTART OF THE SERVER FROM THE COMMAND LINE
+# A RESTART FROM THE CONTROL PANEL DOESNT DO ENOUGH TO ADD NEW SWITCHES
+#
+
 - platform: mqtt
   name: "Pond Aeration"
   state_topic: "pond/stat/POWER"
@@ -13,3 +18,13 @@
   payload_on: "ON"
   payload_off: "OFF"
   retain: false
+
+- platform: mqtt
+  name: "Salt lamp"
+  state_topic: "tasmota01/stat/POWER"
+  command_topic: "tasmota01/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+
