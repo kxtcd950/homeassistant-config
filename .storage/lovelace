@@ -77,6 +77,34 @@
                                     "tap_action": {
                                         "action": "toggle"
                                     }
+                                },
+                                {
+                                    "entity": "switch.hall_tortoise_lamp",
+                                    "name": "Hall Tortoise Lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.tasmota03",
+                                    "name": "Kitchen Tortoise Lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.tasmota04",
+                                    "name": "Dining Tortoise Lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.tasmota02",
+                                    "name": "Living Room Tortoise Lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
                                 }
                             ],
                             "title": "Tortoise sun control",
@@ -377,6 +405,13 @@
                                 },
                                 {
                                     "entity": "switch.salt_lamp",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "switch.tasmota05",
+                                    "name": "Back garden lights",
                                     "tap_action": {
                                         "action": "toggle"
                                     }

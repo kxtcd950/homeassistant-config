@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: shelly1-one-input
+  state_topic: "shellies/shelly1-483FDA91BEC7/input/0"
+  payload_on: "1"
+  payload_off: "0"
+
+- platform: mqtt
+  name: shelly1-two-input
+  state_topic: "shellies/shelly1-483FDA91AE67/input/0"
+  payload_on: "1"
+  payload_off: "0"
+

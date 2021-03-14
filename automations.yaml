@@ -159,7 +159,7 @@
   - at: 02:00:00
     platform: time
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: time
       weekday:
@@ -168,9 +168,10 @@
       entity_id: input_boolean.latenight
       state: 'off'
   action:
-  - data:
-      entity: light.front_room_table_lamp
-    service: light.turn_off
+  - service: light.turn_off
+    entity_id: light.front_room_table_lamp
+    data: {}
+  mode: single
 - alias: Fish Air pump on morning
   id: fish_air_on
   trigger:
@@ -944,4 +945,59 @@
   - service: switch.turn_off
     data: {}
     entity_id: switch.salt_lamp
+  mode: single
+- id: '1615729030928'
+  alias: Shelly-One Switch -> Relay (on)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.shelly1_one_input
+    to: 'on'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.shelly_one_relay
+  mode: single
+- id: '1615729094472'
+  alias: Shelly-One Switch -> Relay (off)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.shelly1_one_input
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.shelly_one_relay
+  mode: single
+- id: '1615731533027'
+  alias: Shelly-Two Switch -> Relay (off)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.shelly1_two_input
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.shelly_two_relay
+  mode: single
+- id: '1615731602595'
+  alias: Shelly-Two Switch -> Relay (on)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.shelly1_two_input
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.shelly_two_relay
   mode: single

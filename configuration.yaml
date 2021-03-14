@@ -106,6 +106,8 @@ script: !include config/scripts.yaml
 
 input_text: !include config/inputtext.yaml
 
+binary_sensor: !include config/binary_sensor.yaml
+
 sonos:
   media_player:
     hosts:

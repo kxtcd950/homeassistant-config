@@ -27,4 +27,58 @@
   payload_off: "OFF"
   retain: false
 
+- platform: mqtt
+  name: "Hall tortoise lamp"
+  state_topic: "roaming/stat/POWER"
+  command_topic: "roaming/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
 
+- platform: mqtt
+  name: "tasmota03"
+  state_topic: "tasmota03/stat/POWER"
+  command_topic: "tasmota03/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+- platform: mqtt
+  name: "tasmota04"
+  state_topic: "tasmota04/stat/POWER"
+  command_topic: "tasmota04/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+- platform: mqtt
+  name: "tasmota02"
+  state_topic: "tasmota02/stat/POWER"
+  command_topic: "tasmota02/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+- platform: mqtt
+  name: "tasmota05"
+  state_topic: "tasmota05/stat/POWER"
+  command_topic: "tasmota05/cmnd/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+- platform: mqtt
+  name: "shelly-one-relay"
+  command_topic: "shellies/shelly1-483FDA91BEC7/relay/0/command"
+  state_topic: "shellies/shelly1-483FDA91BEC7/relay/0"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+
+- platform: mqtt
+  name: "shelly-two-relay"
+  command_topic: "shellies/shelly1-483FDA91AE67/relay/0/command"
+  state_topic: "shellies/shelly1-483FDA91AE67/relay/0"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
